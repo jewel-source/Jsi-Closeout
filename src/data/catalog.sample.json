@@ -1,0 +1,66 @@
+[
+  {
+    "id": "cl-1001",
+    "styleNumber": "CL-1001",
+    "name": "Vintage Halo Diamond Ring",
+    "description": "14k yellow gold ring with a round brilliant center stone surrounded by a halo of pave diamonds. Closeout lot, limited quantity.",
+    "category": "Diamond",
+    "metal": "Gold",
+    "stone": "Diamond",
+    "size": "6, 6.5, 7",
+    "collection": "Closeout 2026",
+    "closeoutYear": "2026",
+    "quantityAvailable": 4,
+    "photos": [
+      { "url": "https://placehold.co/800x800/f5efe6/1a1a1a.png?text=CL-1001+Front", "alt": "Vintage Halo Diamond Ring front view" },
+      { "url": "https://placehold.co/800x800/f5efe6/1a1a1a.png?text=CL-1001+Side", "alt": "Vintage Halo Diamond Ring side view" }
+    ]
+  },
+  {
+    "id": "cl-1002",
+    "styleNumber": "CL-1002",
+    "name": "Classic Tennis Bracelet",
+    "description": "Sterling silver tennis bracelet with a continuous line of cubic zirconia stones. Secure box clasp with safety latch.",
+    "category": "Gemstone",
+    "metal": "Silver",
+    "stone": "Cubic Zirconia",
+    "size": "7 inch",
+    "collection": "Closeout 2026",
+    "closeoutYear": "2026",
+    "quantityAvailable": 12,
+    "photos": [
+      { "url": "https://placehold.co/800x800/f5efe6/1a1a1a.png?text=CL-1002", "alt": "Classic Tennis Bracelet" }
+    ]
+  },
+  {
+    "id": "cl-1003",
+    "styleNumber": "CL-1003",
+    "name": "Pearl Drop Earrings",
+    "description": "Freshwater pearl drop earrings set in 14k white gold with a small diamond accent at the post.",
+    "category": "Pearl",
+    "metal": "Gold",
+    "stone": "Pearl, Diamond",
+    "collection": "Closeout 2026",
+    "closeoutYear": "2026",
+    "quantityAvailable": 8,
+    "photos": [
+      { "url": "https://placehold.co/800x800/f5efe6/1a1a1a.png?text=CL-1003", "alt": "Pearl Drop Earrings" }
+    ]
+  },
+  {
+    "id": "cl-1004",
+    "styleNumber": "CL-1004",
+    "name": "Rope Chain Necklace",
+    "description": "Sterling silver rope chain necklace, 20 inch length with lobster clasp closure.",
+    "category": "Lab",
+    "metal": "Silver",
+    "stone": "Lab-Created",
+    "size": "20 inch",
+    "collection": "Closeout 2026",
+    "closeoutYear": "2026",
+    "quantityAvailable": 20,
+    "photos": [
+      { "url": "https://placehold.co/800x800/f5efe6/1a1a1a.png?text=CL-1004", "alt": "Rope Chain Necklace" }
+    ]
+  }
+]
