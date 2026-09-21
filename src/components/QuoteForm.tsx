@@ -57,14 +57,14 @@ export default function QuoteForm() {
   }
   if (status === "success") {
     return (
-      <div className="rounded-lg border border-black/10 p-6 text-center">
+      <div className="rounded-lg border border-[var(--color-accent)]/20 p-6 text-center">
         <h2 className="text-lg font-semibold">Quote request sent</h2>
-        <p className="text-black/60 mt-2">
+        <p className="text-[var(--foreground)]/60 mt-2">
           Thanks — we&apos;ll be in touch shortly at the email you provided.
         </p>
         <button
           onClick={() => router.push("/")}
-          className="mt-4 px-4 py-2 rounded-md bg-black text-white hover:bg-black/80"
+          className="mt-4 px-4 py-2 rounded-md bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)]"
         >
           Continue browsing
         </button>
@@ -82,7 +82,7 @@ export default function QuoteForm() {
             id="name"
             name="name"
             required
-            className="w-full border border-black/20 rounded-md px-3 py-2"
+            className="w-full border border-[var(--color-accent)]/25 rounded-md px-3 py-2"
           />
         </div>
         <div>
@@ -94,7 +94,7 @@ export default function QuoteForm() {
             name="email"
             type="email"
             required
-            className="w-full border border-black/20 rounded-md px-3 py-2"
+            className="w-full border border-[var(--color-accent)]/25 rounded-md px-3 py-2"
           />
         </div>
         <div>
@@ -104,7 +104,7 @@ export default function QuoteForm() {
           <input
             id="phone"
             name="phone"
-            className="w-full border border-black/20 rounded-md px-3 py-2"
+            className="w-full border border-[var(--color-accent)]/25 rounded-md px-3 py-2"
           />
         </div>
         <div>
@@ -114,7 +114,7 @@ export default function QuoteForm() {
           <input
             id="company"
             name="company"
-            className="w-full border border-black/20 rounded-md px-3 py-2"
+            className="w-full border border-[var(--color-accent)]/25 rounded-md px-3 py-2"
           />
         </div>
       </div>
@@ -126,7 +126,7 @@ export default function QuoteForm() {
           id="message"
           name="message"
           rows={4}
-          className="w-full border border-black/20 rounded-md px-3 py-2"
+          className="w-full border border-[var(--color-accent)]/25 rounded-md px-3 py-2"
         />
       </div>
 

@@ -12,8 +12,8 @@ export default function AddToQuoteButton({ item }: { item: JewelryItem }) {
       disabled={added}
       className={`w-full sm:w-auto px-6 py-3 rounded-md font-medium transition-colors ${
         added
-          ? "bg-black/10 text-black/50 cursor-default"
-          : "bg-black text-white hover:bg-black/80"
+          ? "bg-[var(--color-accent)]/10 text-[var(--color-accent-dark)] cursor-default"
+          : "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)]"
       }`}
     >
       {added ? "Added to quote request" : "Add to quote request"}

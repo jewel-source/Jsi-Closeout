@@ -4,27 +4,27 @@ export default function QuoteCartList() {
   const { items, removeItem, setQuantity } = useQuoteCart();
   if (items.length === 0) {
     return (
-      <p className="text-black/60">
+      <p className="text-[var(--foreground)]/60">
         You haven&apos;t added any pieces yet. Browse the catalog and click
         &quot;Add to quote request&quot; on items you&apos;re interested in.
       </p>
     );
   }
   return (
-    <ul className="divide-y divide-black/10 border border-black/10 rounded-lg">
+    <ul className="divide-y divide-[var(--color-accent)]/15 border border-[var(--color-accent)]/20 rounded-lg">
       {items.map((item) => (
         <li
           key={item.id}
           className="flex items-center justify-between gap-4 p-4"
         >
           <div>
-            <p className="text-xs text-black/50 uppercase tracking-wide">
+            <p className="text-xs text-[var(--color-accent-dark)] uppercase tracking-widest font-medium">
               {item.styleNumber}
             </p>
             <p className="font-medium">{item.name}</p>
           </div>
           <div className="flex items-center gap-3">
-            <label className="text-sm text-black/60" htmlFor={`qty-${item.id}`}>
+            <label className="text-sm text-[var(--foreground)]/60" htmlFor={`qty-${item.id}`}>
               Qty
             </label>
             <input
@@ -33,7 +33,7 @@ export default function QuoteCartList() {
               min={1}
               value={item.quantity}
               onChange={(e) => setQuantity(item.id, Number(e.target.value))}
-              className="w-16 border border-black/20 rounded-md px-2 py-1"
+              className="w-16 border border-[var(--color-accent)]/30 rounded-md px-2 py-1"
             />
             <button
               onClick={() => removeItem(item.id)}

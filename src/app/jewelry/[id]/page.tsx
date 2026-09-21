@@ -4,44 +4,35 @@ import { notFound } from "next/navigation";
 import { getCatalog, getItem } from "@/lib/catalog";
 import AddToQuoteButton from "@/components/AddToQuoteButton";
 import type { JewelryItem } from "@/lib/types";
+
 export function generateStaticParams() {
   return getCatalog().map((item) => ({ id: item.id }));
 }
+
 function getDetailFields(item: JewelryItem): {
   key: string;
   label: string;
   value: string;
 }[] {
-  const isDiamond =
-    /diamond/i.test(item.stone ?? "") || /diamond/i.test(item.category);
-  const weightLabel = isDiamond
-    ? "Total Carat Weight (CTW)"
-    : "Total Gem Weight (GTW)";
+  const isDiamond = /diamond/i.test(item.stone ?? "") || /diamond/i.test(item.category);
+  const weightLabel = isDiamond ? "Total Carat Weight (CTW)" : "Total Gem Weight (GTW)";
   return [
     { key: "metal", label: "Metal", value: item.metal },
     { key: "stone", label: "Stone", value: item.stone },
     { key: "size", label: "Size", value: item.size },
     { key: "caratWeight", label: weightLabel, value: item.caratWeight },
     { key: "collection", label: "Collection", value: item.collection },
-  ].filter(
-    (
-      f,
-    ): f is {
-      key: string;
-      label: string;
-      value: string;
-    } => Boolean(f.value),
-  );
+  ].filter((f): f is { key: string; label: string; value: string } => Boolean(f.value));
 }
-export default async function JewelryDetail({
-  params,
-}: PageProps<"/jewelry/[id]">) {
+
+export default async function JewelryDetail({ params }: PageProps<"/jewelry/[id]">) {
   const { id } = await params;
   const item = getItem(id);
   if (!item) notFound();
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
-      <Link href="/" className="text-sm text-black/60 hover:underline">
+      <Link href="/" className="text-sm text-[var(--color-accent-dark)] hover:underline">
         &larr; Back to catalog
       </Link>
 
@@ -51,7 +42,7 @@ export default async function JewelryDetail({
             item.photos.map((photo, i) => (
               <div
                 key={photo.url}
-                className={`relative aspect-square bg-neutral-100 rounded-lg overflow-hidden ${i === 0 ? "col-span-2" : ""}`}
+                className={`relative aspect-square bg-sky-50 rounded-lg overflow-hidden ${i === 0 ? "col-span-2" : ""}`}
               >
                 <Image
                   src={photo.url}
@@ -64,27 +55,27 @@ export default async function JewelryDetail({
               </div>
             ))
           ) : (
-            <div className="col-span-2 aspect-square bg-neutral-100 rounded-lg flex items-center justify-center text-black/30">
+            <div className="col-span-2 aspect-square bg-sky-50 rounded-lg flex items-center justify-center text-[var(--foreground)]/30">
               No photo available
             </div>
           )}
         </div>
 
         <div>
-          <p className="text-sm text-black/50 uppercase tracking-wide">
-            {item.styleNumber}
+          <p className="text-xs uppercase tracking-widest text-[var(--color-accent-dark)] font-medium">
+            {item.category}
           </p>
-          <h1 className="text-2xl font-semibold mt-1">{item.name}</h1>
-          <p className="text-black/60 mt-1">{item.category}</p>
+          <h1 className="font-serif text-3xl font-bold mt-1 text-[var(--color-footer)]">
+            {item.name}
+          </h1>
+          <p className="text-[var(--foreground)]/50 text-sm mt-1">{item.styleNumber}</p>
 
-          <p className="mt-6 text-black/80 leading-relaxed">
-            {item.description}
-          </p>
+          <p className="mt-6 text-[var(--foreground)]/80 leading-relaxed">{item.description}</p>
 
-          <dl className="mt-6 grid grid-cols-2 gap-y-3 text-sm">
+          <dl className="mt-6 grid grid-cols-2 gap-y-3 text-sm border-t border-[var(--color-accent)]/15 pt-6">
             {getDetailFields(item).map((f) => (
               <div key={f.key}>
-                <dt className="text-black/50">{f.label}</dt>
+                <dt className="text-[var(--foreground)]/50">{f.label}</dt>
                 <dd className="font-medium">{f.value}</dd>
               </div>
             ))}
