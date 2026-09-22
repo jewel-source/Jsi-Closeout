@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LinkPendingSpinner from "./LinkPendingSpinner";
 
 function buildHref(metal: string | undefined, category: string | undefined) {
   const params = new URLSearchParams();
@@ -20,13 +21,14 @@ function FilterLink({
   return (
     <Link
       href={href}
-      className={`block px-2 py-1.5 rounded text-sm ${
+      className={`flex items-center px-2 py-1.5 rounded text-sm ${
         active
           ? "bg-[var(--color-accent)] text-white font-medium"
           : "text-[var(--foreground)]/75 hover:bg-[var(--color-accent)]/10"
       }`}
     >
       {children}
+      <LinkPendingSpinner className="ml-1.5" />
     </Link>
   );
 }

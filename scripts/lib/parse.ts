@@ -47,10 +47,13 @@ export const GEM_CODE_MAP: Record<string, string> = {
   "CH DIOP": "Chrome Diopside",
   TO: "Topaz",
   MUL: "Multi-Gemstone",
+  SA: "Sapphire",
+  SPNL: "Spinel",
 };
 const COLOR_PREFIXES: Record<string, string> = {
   BLK: "Black",
   BL: "Blue",
+  PNK: "Pink",
   PK: "Pink",
   WH: "White",
   YL: "Yellow",
@@ -62,6 +65,8 @@ const GEM_SUFFIXES: Record<string, string> = {
   TPZ: "Topaz",
   SPNL: "Spinel",
   AMY: "Amethyst",
+  OP: "Opal",
+  QTZ: "Quartz",
 };
 function decodeCompositeGemCode(code: string): string | undefined {
   const upper = code.toUpperCase();
@@ -82,38 +87,44 @@ function decodeSlashGemCode(code: string): string | undefined {
 }
 export function decodeGemCode(code: string): string {
   const upper = code.toUpperCase();
+  const alreadyFullWord = GEM_KEYWORDS.find((g) => g.pattern.toUpperCase() === upper)?.label;
   return (
+    alreadyFullWord ??
     GEM_CODE_MAP[upper] ??
     decodeCompositeGemCode(upper) ??
     decodeSlashGemCode(upper) ??
     code
   );
 }
-export const GEM_KEYWORDS = [
-  "Cubic Zirconia",
-  "White Zircon",
-  "Aquamarine",
-  "Tanzanite",
-  "Sapphire",
-  "Emerald",
-  "Morganite",
-  "Moonstone",
-  "Turquoise",
-  "Amethyst",
-  "Citrine",
-  "Peridot",
-  "Garnet",
-  "Zultanite",
-  "Zircon",
-  "Diamond",
-  "Topaz",
-  "Quartz",
-  "Ruby",
-  "Pearl",
-  "Opal",
-  "Onyx",
-  "Iolite",
-].sort((a, b) => b.length - a.length);
+export const GEM_KEYWORDS: { pattern: string; label: string }[] = [
+  { pattern: "Cubic Zirconia", label: "Cubic Zirconia" },
+  { pattern: "White Zircon", label: "White Zircon" },
+  { pattern: "Aquamarine", label: "Aquamarine" },
+  { pattern: "Tanzanite", label: "Tanzanite" },
+  { pattern: "Sapphire", label: "Sapphire" },
+  { pattern: "Emerald", label: "Emerald" },
+  { pattern: "Morganite", label: "Morganite" },
+  { pattern: "Moonstone", label: "Moonstone" },
+  { pattern: "Turquoise", label: "Turquoise" },
+  { pattern: "Amethyst", label: "Amethyst" },
+  { pattern: "Citrine", label: "Citrine" },
+  { pattern: "Peridot", label: "Peridot" },
+  { pattern: "Garnet", label: "Garnet" },
+  { pattern: "Zultanite", label: "Zultanite" },
+  { pattern: "Zircon", label: "Zircon" },
+  // "Diam"/"Dia" are extremely standard trade abbreviations for Diamond —
+  // matched alongside the full word since sheets use both interchangeably.
+  { pattern: "Diamonds?", label: "Diamond" },
+  { pattern: "Diam", label: "Diamond" },
+  { pattern: "Dia", label: "Diamond" },
+  { pattern: "Topaz", label: "Topaz" },
+  { pattern: "Quartz", label: "Quartz" },
+  { pattern: "Ruby", label: "Ruby" },
+  { pattern: "Pearl", label: "Pearl" },
+  { pattern: "Opal", label: "Opal" },
+  { pattern: "Onyx", label: "Onyx" },
+  { pattern: "Iolite", label: "Iolite" },
+].sort((a, b) => b.pattern.length - a.pattern.length);
 export const JEWELRY_TYPE_KEYWORDS: {
   pattern: string;
   label: string;
@@ -137,10 +148,11 @@ export function titleCase(s: string): string {
 export function extractGemsFromText(text: string): string[] {
   let working = ` ${text.toUpperCase()} `;
   const found: string[] = [];
-  for (const gem of GEM_KEYWORDS) {
-    const regex = new RegExp(`\\b${gem.toUpperCase()}\\b`);
+  for (const { pattern, label } of GEM_KEYWORDS) {
+    if (found.includes(label)) continue; // e.g. both "Diamond" and "Diam" matching the same text
+    const regex = new RegExp(`\\b${pattern.toUpperCase()}\\b`);
     if (regex.test(working)) {
-      found.push(gem);
+      found.push(label);
       working = working.replace(regex, " ");
     }
   }
@@ -176,6 +188,10 @@ export function coarseMetal(
   if (!metalLabel) return undefined;
   if (/gold/i.test(metalLabel)) return "Gold";
   if (/silver/i.test(metalLabel)) return "Silver";
+  if (/platinum/i.test(metalLabel)) return "Platinum";
+  // Karat+color gold shorthand never contains the word "gold" itself, e.g.
+  // "14KY" (yellow), "10KRG" (rose), "14KTT" (two-tone), "18KWG" (white).
+  if (/^\d+\s?K/i.test(metalLabel.trim())) return "Gold";
   return metalLabel;
 }
 function capitalize(s: string): string {
@@ -185,7 +201,8 @@ export function buildNameAndDescription(parts: {
   metalLabel?: string;
   type?: string;
   stones: string[];
-  caratWeight?: string;
+  ctw?: string;
+  gtw?: string;
   sizeText?: string;
   rawDesc?: string;
   styleNumber: string;
@@ -202,8 +219,15 @@ export function buildNameAndDescription(parts: {
   }
   let sentence = `${parts.metalLabel ?? ""} ${typeLabel}`.trim();
   if (stonePart) sentence += ` featuring ${stonePart}`;
-  if (parts.caratWeight)
-    sentence += `, total gem weight ${parts.caratWeight} ctw`;
+  // GTW is the gemstone's own weight, CTW is diamond-accent weight — a piece
+  // can have either, or both at once (e.g. a colored stone with a pave
+  // diamond halo), so each is reported separately rather than picking one.
+  if (parts.gtw) sentence += `, total gem weight ${parts.gtw} ctw`;
+  if (parts.ctw) {
+    sentence += parts.gtw
+      ? ` plus ${parts.ctw} ctw diamond accents`
+      : `, total weight ${parts.ctw} ctw`;
+  }
   if (parts.sizeText) sentence += `, size ${parts.sizeText}`;
   sentence += ".";
   return { name, description: capitalize(sentence) };

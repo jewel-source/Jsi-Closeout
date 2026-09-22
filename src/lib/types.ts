@@ -11,7 +11,8 @@ export interface JewelryItem {
   metal?: string;
   stone?: string;
   size?: string;
-  caratWeight?: string;
+  ctw?: string;
+  gtw?: string;
   collection?: string;
   closeoutYear?: string;
   quantityAvailable?: number;

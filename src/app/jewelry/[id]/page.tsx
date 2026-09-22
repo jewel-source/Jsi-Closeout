@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCatalog, getItem } from "@/lib/catalog";
 import AddToQuoteButton from "@/components/AddToQuoteButton";
+import BackToCatalogLink from "@/components/BackToCatalogLink";
 import type { JewelryItem } from "@/lib/types";
 
 export function generateStaticParams() {
@@ -14,13 +14,12 @@ function getDetailFields(item: JewelryItem): {
   label: string;
   value: string;
 }[] {
-  const isDiamond = /diamond/i.test(item.stone ?? "") || /diamond/i.test(item.category);
-  const weightLabel = isDiamond ? "Total Carat Weight (CTW)" : "Total Gem Weight (GTW)";
   return [
     { key: "metal", label: "Metal", value: item.metal },
     { key: "stone", label: "Stone", value: item.stone },
     { key: "size", label: "Size", value: item.size },
-    { key: "caratWeight", label: weightLabel, value: item.caratWeight },
+    { key: "gtw", label: "Total Gem Weight (GTW)", value: item.gtw },
+    { key: "ctw", label: "Total Carat Weight (CTW)", value: item.ctw },
     { key: "collection", label: "Collection", value: item.collection },
   ].filter((f): f is { key: string; label: string; value: string } => Boolean(f.value));
 }
@@ -32,9 +31,7 @@ export default async function JewelryDetail({ params }: PageProps<"/jewelry/[id]
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
-      <Link href="/" className="text-sm text-[var(--color-accent-dark)] hover:underline">
-        &larr; Back to catalog
-      </Link>
+      <BackToCatalogLink />
 
       <div className="mt-6 grid md:grid-cols-2 gap-10">
         <div className="grid grid-cols-2 gap-3">

@@ -47,13 +47,19 @@ items) so you can see the layout before hooking up real data.
    npm run import-catalog
    ```
    This downloads every `.xlsx`/`.xls` file under `SEAFILE_FOLDER_PATH` (skipping
-   any file with "sold" in its name, e.g. `SILVER LAB-GEM- All Sold.xlsx`),
-   matches columns like Style #, Desc, Metal, Gem, Qty, Price (case-insensitive,
-   several header spellings supported — see `COLUMN_ALIASES` in
-   `scripts/import-catalog.ts`), searches Immich for each style's photos
-   (matching on an exact `<style>` or `<style>_<n>` filename, not a loose
-   substring, and ordering multi-angle shots numerically), and writes
-   `src/data/catalog.json` with each photo pointing at `/api/immich-image/<asset-id>`.
+   any file with "sold" in its name, e.g. `SILVER LAB-GEM- All Sold.xlsx`), reads
+   **every sheet tab** in each workbook (not just the first — some files split
+   e.g. "Mens Jewelry" or "Station Necklaces" into their own tabs), and skips any
+   individual row where both `Company` and `Memo/Invoice` are filled in — that
+   combination means the piece has already been sold/invoiced, even if the rest
+   of its sheet is still active stock. It matches columns like Style #, Desc,
+   Metal, Gem, Qty, Price (case-insensitive, several header spellings supported
+   — see `COLUMN_ALIASES` in `scripts/import-catalog.ts`), searches Immich for
+   each style's photos (edit-distance matching against the photo's own filename
+   code, tolerant of dropped/typo'd characters and inconsistent naming, but
+   rejecting ambiguous or implausibly-shared matches rather than guessing — see
+   `scripts/lib/immich.ts`), and writes `src/data/catalog.json` with each photo
+   pointing at `/api/immich-image/<asset-id>`.
    The site automatically prefers this file over the sample data once it
    exists. Two style numbers landing on the same generated id (a duplicate row
    within one sheet, or the same style repeated across sheets) are handled

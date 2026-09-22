@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useQuoteCart } from "@/context/QuoteCartContext";
+import Spinner from "./Spinner";
 type Status = "idle" | "submitting" | "success" | "error";
 export default function QuoteForm() {
   const { items, clear } = useQuoteCart();
@@ -10,6 +11,7 @@ export default function QuoteForm() {
   const [error, setError] = useState<string | null>(null);
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (status === "submitting") return; // guard against a double-fire before the disabled state re-renders
     setStatus("submitting");
     setError(null);
     const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
@@ -135,8 +137,9 @@ export default function QuoteForm() {
       <button
         type="submit"
         disabled={status === "submitting" || items.length === 0}
-        className="px-6 py-3 rounded-md bg-black text-white font-medium hover:bg-black/80 disabled:opacity-50"
+        className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[var(--color-accent)] text-white font-medium hover:bg-[var(--color-accent-dark)] disabled:opacity-50"
       >
+        {status === "submitting" && <Spinner size={16} variant="white" />}
         {status === "submitting" ? "Sending..." : "Send quote request"}
       </button>
     </form>
