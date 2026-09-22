@@ -47,10 +47,13 @@ export const GEM_CODE_MAP: Record<string, string> = {
   "CH DIOP": "Chrome Diopside",
   TO: "Topaz",
   MUL: "Multi-Gemstone",
+  SA: "Sapphire",
+  SPNL: "Spinel",
 };
 const COLOR_PREFIXES: Record<string, string> = {
   BLK: "Black",
   BL: "Blue",
+  PNK: "Pink",
   PK: "Pink",
   WH: "White",
   YL: "Yellow",
@@ -62,6 +65,8 @@ const GEM_SUFFIXES: Record<string, string> = {
   TPZ: "Topaz",
   SPNL: "Spinel",
   AMY: "Amethyst",
+  OP: "Opal",
+  QTZ: "Quartz",
 };
 function decodeCompositeGemCode(code: string): string | undefined {
   const upper = code.toUpperCase();
@@ -82,7 +87,9 @@ function decodeSlashGemCode(code: string): string | undefined {
 }
 export function decodeGemCode(code: string): string {
   const upper = code.toUpperCase();
+  const alreadyFullWord = GEM_KEYWORDS.find((g) => g.toUpperCase() === upper);
   return (
+    alreadyFullWord ??
     GEM_CODE_MAP[upper] ??
     decodeCompositeGemCode(upper) ??
     decodeSlashGemCode(upper) ??

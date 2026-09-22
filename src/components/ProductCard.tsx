@@ -4,6 +4,9 @@ import type { JewelryItem } from "@/lib/types";
 
 export default function ProductCard({ item }: { item: JewelryItem }) {
   const photo = item.photos[0];
+  const isDiamond = /diamond/i.test(item.stone ?? "") || /diamond/i.test(item.category);
+  const weightLabel = item.caratWeight ? `${item.caratWeight} ${isDiamond ? "CTW" : "GTW"}` : undefined;
+
   return (
     <Link href={`/jewelry/${item.id}`} className="group block text-center">
       <div className="relative aspect-square bg-sky-50 rounded-lg overflow-hidden">
@@ -29,8 +32,11 @@ export default function ProductCard({ item }: { item: JewelryItem }) {
       <div className="pt-3">
         <p className="text-[11px] uppercase tracking-widest text-[var(--color-accent-dark)] font-medium">
           {item.category}
+          {weightLabel ? ` · ${weightLabel}` : ""}
         </p>
-        <h3 className="font-serif text-base mt-0.5 leading-snug">{item.name}</h3>
+        <p className="text-sm text-[var(--foreground)]/75 mt-0.5 leading-snug line-clamp-2">
+          {item.description}
+        </p>
       </div>
     </Link>
   );
