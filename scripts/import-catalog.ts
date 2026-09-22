@@ -64,10 +64,6 @@ const COLUMN_ALIASES: Record<string, string[]> = {
   price: ["price", "cost", "unit price", "wholesale price", "wholesale"],
   collection: ["collection", "group", "lot"],
   closeoutYear: ["year", "closeout year"],
-  // Internal-only — read to detect sold rows (see soldRowSkippedCount below),
-  // never mapped onto the customer-facing JewelryItem.
-  company: ["company"],
-  memoInvoice: ["memo/invoice", "memo / invoice", "invoice/memo", "memo", "invoice"],
 };
 /** "0" or blank means "not applicable" for a weight column, not a real measurement. */
 function presentWeight(value: string | undefined): string | undefined {
@@ -211,104 +207,80 @@ async function main() {
       );
     let rowCount = 0;
     const fileItems = new Map<string, JewelryItem>();
-    for (const { sheetName, rows } of sheets) {
-      if (rows.length === 0) continue;
-      const headerMap = buildHeaderMap(Object.keys(rows[0]));
-      if (!headerMap.styleNumber) {
-        console.warn(
-          `  Skipping sheet "${sheetName}" in ${filePath}: no style/item/SKU column found.`,
-        );
-        console.warn(`  Headers seen: ${Object.keys(rows[0]).join(", ")}`);
+    for (const row of rows) {
+      const styleNumber = String(row[headerMap.styleNumber] ?? "").trim();
+      if (!styleNumber) continue;
+      rowCount++;
+      const get = (field: string) =>
+        headerMap[field]
+          ? String(row[headerMap[field]] ?? "").trim()
+          : undefined;
+      const rawDesc = get("rawDesc") ?? "";
+      const type = extractJewelryType(rawDesc);
+      const stonesFromDesc = extractGemsFromText(rawDesc);
+      const gemCode = get("gem");
+      const decodedGemCode = gemCode ? decodeGemCode(gemCode) : undefined;
+      if (gemCode && !stonesFromDesc.length && decodedGemCode === gemCode) {
+        unrecognizedGemCodes.add(gemCode.toUpperCase());
+      }
+      const stones = stonesFromDesc.length
+        ? stonesFromDesc
+        : decodedGemCode
+          ? [decodedGemCode]
+          : fileStone
+            ? [fileStone]
+            : [];
+      const metalLabel = decodeMetal(get("metal")) ?? fileMetal;
+      const size = get("size") ?? extractInchSize(rawDesc);
+      const { name, description } = buildNameAndDescription({
+        metalLabel,
+        type,
+        stones,
+        caratWeight: get("caratWeight"),
+        sizeText: size,
+        rawDesc,
+        styleNumber,
+      });
+      const baseId = styleNumber.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+      const rowQty = get("quantityAvailable")
+        ? Number(get("quantityAvailable"))
+        : undefined;
+      const existing = fileItems.get(baseId);
+      if (existing) {
+        sameFileMergedCount++;
+        if (rowQty !== undefined) {
+          existing.quantityAvailable =
+            (existing.quantityAvailable ?? 0) + rowQty;
+        }
         continue;
       }
-      for (const row of rows) {
-        const styleNumber = String(row[headerMap.styleNumber] ?? "").trim();
-        if (!styleNumber) continue;
-        rowCount++;
-        const get = (field: string) =>
-          headerMap[field]
-            ? String(row[headerMap[field]] ?? "").trim()
-            : undefined;
-        // Both Company and Memo/Invoice filled in means this stock has
-        // already been sold/invoiced out — exclude it from the site rather
-        // than relying solely on whole-file "All Sold" sheets, since a row
-        // can be individually sold within an otherwise-active sheet.
-        if (get("company") && get("memoInvoice")) {
-          soldRowSkippedCount++;
-          continue;
-        }
-        const rawDesc = get("rawDesc") ?? "";
-        const type = extractJewelryType(rawDesc);
-        const stonesFromDesc = extractGemsFromText(rawDesc);
-        const gemCode = get("gem");
-        const decodedGemCode = gemCode ? decodeGemCode(gemCode) : undefined;
-        if (gemCode && !stonesFromDesc.length && decodedGemCode === gemCode) {
-          unrecognizedGemCodes.add(gemCode.toUpperCase());
-        }
-        const stones = stonesFromDesc.length
-          ? stonesFromDesc
-          : decodedGemCode
-            ? [decodedGemCode]
-            : fileStone
-              ? [fileStone]
-              : [];
-        const metalLabel = decodeMetal(get("metal")) ?? fileMetal;
-        const size = get("size") ?? extractInchSize(rawDesc);
-        const ctw = presentWeight(get("ctw"));
-        const gtw = presentWeight(get("gtw"));
-        const { name, description } = buildNameAndDescription({
-          metalLabel,
-          type,
-          stones,
-          ctw,
-          gtw,
-          sizeText: size,
-          rawDesc,
-          styleNumber,
-        });
-        const baseId = styleNumber.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-        const rowQty = get("quantityAvailable")
-          ? Number(get("quantityAvailable"))
-          : undefined;
-        const existing = fileItems.get(baseId);
-        if (existing) {
-          sameFileMergedCount++;
-          if (rowQty !== undefined) {
-            existing.quantityAvailable =
-              (existing.quantityAvailable ?? 0) + rowQty;
-          }
-          continue;
-        }
-        const { photos, fromCache } = await resolvePhotos(
-          immich,
-          styleNumber,
-          photoCache,
-          { metal: metalLabel, size },
-        );
-        if (fromCache) cachedPhotoCount++;
-        else freshPhotoSearchCount++;
-        fileItems.set(baseId, {
-          id: baseId,
-          styleNumber,
-          name: get("name") || name,
-          description,
-          category:
-            canonicalizeCategory(get("category")) ||
-            type ||
-            fileStone ||
-            "Uncategorized",
-          metal: coarseMetal(metalLabel) ?? fileMetal,
-          stone: stones.join(", ") || undefined,
-          size,
-          ctw,
-          gtw,
-          collection: get("collection"),
-          closeoutYear: get("closeoutYear"),
-          quantityAvailable: rowQty,
-          price: get("price") ? Number(get("price")) : undefined,
-          photos,
-        });
-      }
+      const { photos, fromCache } = await resolvePhotos(
+        immich,
+        styleNumber,
+        photoCache,
+      );
+      if (fromCache) cachedPhotoCount++;
+      else freshPhotoSearchCount++;
+      fileItems.set(baseId, {
+        id: baseId,
+        styleNumber,
+        name: get("name") || name,
+        description,
+        category:
+          canonicalizeCategory(get("category")) ||
+          type ||
+          fileStone ||
+          "Uncategorized",
+        metal: coarseMetal(metalLabel) ?? fileMetal,
+        stone: stones.join(", ") || undefined,
+        size,
+        caratWeight: get("caratWeight"),
+        collection: get("collection"),
+        closeoutYear: get("closeoutYear"),
+        quantityAvailable: rowQty,
+        price: get("price") ? Number(get("price")) : undefined,
+        photos,
+      });
     }
     for (const item of fileItems.values()) {
       let id = item.id;
