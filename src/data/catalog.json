@@ -41444,7 +41444,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "1",
-    "quantityAvailable": 113,
+    "quantityAvailable": 111,
     "price": 429.7,
     "photos": [
       {
@@ -51588,6 +51588,24 @@
     "photos": []
   },
   {
+    "id": "lckr1586yp-2",
+    "styleNumber": "LCKR1586YP",
+    "name": "Sterling Silver Diamond Rings",
+    "description": "Sterling Silver Rings featuring Diamond, total weight 0.2 ctw.",
+    "category": "Rings",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "0.2",
+    "quantityAvailable": 1,
+    "price": 16.86,
+    "photos": [
+      {
+        "url": "/api/immich-image/afeb2706-6088-4780-b321-07a9f7cae30e/preview",
+        "alt": "LCKR1586YP photo 1"
+      }
+    ]
+  },
+  {
     "id": "lp2438yp-2",
     "styleNumber": "LP2438YP",
     "name": "SILVER Diamond Pendants",
@@ -53070,6 +53088,19 @@
     "gtw": "2.75",
     "quantityAvailable": 7,
     "price": 47.34,
+    "photos": []
+  },
+  {
+    "id": "jb01055stq725-2",
+    "styleNumber": "JB01055STQ725",
+    "name": "SILVER Smoky Quartz Bracelets",
+    "description": "SILVER Bracelets featuring Smoky Quartz, size 7.25\".",
+    "category": "Bracelets",
+    "metal": "Silver",
+    "stone": "Smoky Quartz",
+    "size": "7.25\"",
+    "quantityAvailable": 11,
+    "price": 107.45,
     "photos": []
   },
   {
