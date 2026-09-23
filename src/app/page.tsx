@@ -1,6 +1,6 @@
 import { getCatalog, getCategories, getMetals } from "@/lib/catalog";
 import ProductCard from "@/components/ProductCard";
-import FilterSidebar from "@/components/FilterSidebar";
+import FilterBar from "@/components/FilterBar";
 import Pagination from "@/components/Pagination";
 
 const PAGE_SIZE = 24;
@@ -29,8 +29,8 @@ export default async function Home({ searchParams }: PageProps<"/">) {
   return (
     <>
       <section className="hero-band">
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:py-20">
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight mt-3 text-[var(--color-footer)]">
+        <div className="mx-auto max-w-6xl px-4 py-10 sm:py-20">
+          <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight mt-3 text-[var(--color-footer)]">
             Jewelry <span className="brand-gradient-text">Catalog</span>
           </h1>
           <p className="text-[var(--foreground)]/70 mt-4 max-w-2xl text-base sm:text-lg leading-relaxed">
@@ -45,20 +45,20 @@ export default async function Home({ searchParams }: PageProps<"/">) {
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:flex sm:items-start sm:gap-8">
-        <FilterSidebar
+      <div className="mx-auto max-w-6xl px-4 py-6 sm:py-8">
+        <FilterBar
           metals={metals}
           categories={categories}
           selectedMetal={selectedMetal}
           selectedCategory={selectedCategory}
         />
 
-        <div className="flex-1 mt-6 sm:mt-0">
+        <div className="mt-6 sm:mt-8">
           {items.length === 0 ? (
             <p className="text-[var(--foreground)]/60">No items found.</p>
           ) : (
             <>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                 {pageItems.map((item) => (
                   <ProductCard key={item.id} item={item} />
                 ))}

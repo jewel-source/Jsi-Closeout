@@ -46,13 +46,11 @@ items) so you can see the layout before hooking up real data.
    ```bash
    npm run import-catalog
    ```
-   This downloads every `.xlsx`/`.xls` file under `SEAFILE_FOLDER_PATH` (skipping
-   any file with "sold" in its name, e.g. `SILVER LAB-GEM- All Sold.xlsx`), reads
+   This downloads every `.xlsx`/`.xls` file under `SEAFILE_FOLDER_PATH` (including
+   sold lists such as `SILVER LAB-GEM- All Sold.xlsx` — sold pieces can be
+   ordered again, so they are intentionally kept in the catalog), reads
    **every sheet tab** in each workbook (not just the first — some files split
-   e.g. "Mens Jewelry" or "Station Necklaces" into their own tabs), and skips any
-   individual row where both `Company` and `Memo/Invoice` are filled in — that
-   combination means the piece has already been sold/invoiced, even if the rest
-   of its sheet is still active stock. It matches columns like Style #, Desc,
+   e.g. "Mens Jewelry" or "Station Necklaces" into their own tabs). It matches columns like Style #, Desc,
    Metal, Gem, Qty, Price (case-insensitive, several header spellings supported
    — see `COLUMN_ALIASES` in `scripts/import-catalog.ts`), searches Immich for
    each style's photos (edit-distance matching against the photo's own filename

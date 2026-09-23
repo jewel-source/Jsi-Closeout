@@ -64,10 +64,6 @@ const COLUMN_ALIASES: Record<string, string[]> = {
   price: ["price", "cost", "unit price", "wholesale price", "wholesale"],
   collection: ["collection", "group", "lot"],
   closeoutYear: ["year", "closeout year"],
-  // Internal-only — read to detect sold rows (see soldRowSkippedCount below),
-  // never mapped onto the customer-facing JewelryItem.
-  company: ["company"],
-  memoInvoice: ["memo/invoice", "memo / invoice", "invoice/memo", "memo", "invoice"],
 };
 /** "0" or blank means "not applicable" for a weight column, not a real measurement. */
 function presentWeight(value: string | undefined): string | undefined {
@@ -195,13 +191,8 @@ async function main() {
   let crossFileDisambiguatedCount = 0;
   let cachedPhotoCount = 0;
   let freshPhotoSearchCount = 0;
-  let soldRowSkippedCount = 0;
   for (const filePath of excelFiles) {
     const fileName = path.basename(filePath);
-    if (/sold/i.test(fileName)) {
-      console.log(`Skipping ${filePath} (name indicates a sold-out list).`);
-      continue;
-    }
     console.log(`Downloading ${filePath}...`);
     const buffer = await downloadFile(config, filePath);
     const sheets = sheetsFromWorkbook(buffer);
@@ -229,14 +220,6 @@ async function main() {
           headerMap[field]
             ? String(row[headerMap[field]] ?? "").trim()
             : undefined;
-        // Both Company and Memo/Invoice filled in means this stock has
-        // already been sold/invoiced out — exclude it from the site rather
-        // than relying solely on whole-file "All Sold" sheets, since a row
-        // can be individually sold within an otherwise-active sheet.
-        if (get("company") && get("memoInvoice")) {
-          soldRowSkippedCount++;
-          continue;
-        }
         const rawDesc = get("rawDesc") ?? "";
         const type = extractJewelryType(rawDesc);
         const stonesFromDesc = extractGemsFromText(rawDesc);
@@ -328,8 +311,7 @@ async function main() {
   console.log(`Wrote ${items.length} items to ${OUTPUT_PATH}`);
   console.log(
     `  ${sameFileMergedCount} same-file duplicate row(s) merged into existing listings; ` +
-      `${crossFileDisambiguatedCount} cross-file id collision(s) disambiguated; ` +
-      `${soldRowSkippedCount} row(s) skipped as already sold (Company + Memo/Invoice both filled).`,
+      `${crossFileDisambiguatedCount} cross-file id collision(s) disambiguated.`,
   );
   const photoCounts = { zero: 0, one: 0, many: 0 };
   for (const item of items) {

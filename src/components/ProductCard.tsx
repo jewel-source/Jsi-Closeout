@@ -28,7 +28,11 @@ export default function ProductCard({ item }: { item: JewelryItem }) {
             No photo
           </div>
         )}
-        <div className="absolute inset-0 flex items-end justify-center pb-3 opacity-0 group-hover:opacity-100 transition-opacity">
+        <LinkPendingSpinner
+          size={22}
+          className="absolute right-2 top-2 rounded-full bg-white/90 p-1.5 shadow"
+        />
+        <div className="absolute inset-0 flex items-end justify-center pb-3 opacity-0 group-hover:opacity-100 transition-opacity [@media(hover:none)]:hidden">
           <span className="flex items-center gap-1.5 bg-[var(--color-accent)] text-white text-xs font-medium px-4 py-1.5 rounded-full">
             View
             <LinkPendingSpinner size={11} variant="white" />

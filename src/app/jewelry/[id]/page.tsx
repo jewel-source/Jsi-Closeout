@@ -30,10 +30,10 @@ export default async function JewelryDetail({ params }: PageProps<"/jewelry/[id]
   if (!item) notFound();
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10">
+    <div className="mx-auto max-w-6xl px-4 py-6 sm:py-10">
       <BackToCatalogLink />
 
-      <div className="mt-6 grid md:grid-cols-2 gap-10">
+      <div className="mt-4 sm:mt-6 grid md:grid-cols-2 gap-6 md:gap-10">
         <div className="grid grid-cols-2 gap-3">
           {item.photos.length > 0 ? (
             item.photos.map((photo, i) => (
@@ -62,7 +62,7 @@ export default async function JewelryDetail({ params }: PageProps<"/jewelry/[id]
           <p className="text-xs uppercase tracking-widest text-[var(--color-accent-dark)] font-medium">
             {item.category}
           </p>
-          <h1 className="font-serif text-3xl font-bold mt-1 text-[var(--color-footer)]">
+          <h1 className="font-serif text-2xl sm:text-3xl font-bold mt-1 text-[var(--color-footer)]">
             {item.name}
           </h1>
           <p className="text-[var(--foreground)]/50 text-sm mt-1">{item.styleNumber}</p>
