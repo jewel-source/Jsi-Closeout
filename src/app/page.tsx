@@ -1,6 +1,9 @@
 import { getCatalog, getCategories, getMetals } from "@/lib/catalog";
 import ProductCard from "@/components/ProductCard";
 import FilterSidebar from "@/components/FilterSidebar";
+import Pagination from "@/components/Pagination";
+
+const PAGE_SIZE = 24;
 
 export default async function Home({ searchParams }: PageProps<"/">) {
   const params = await searchParams;
@@ -16,19 +19,33 @@ export default async function Home({ searchParams }: PageProps<"/">) {
     return true;
   });
 
-  return (
-    <div className="mx-auto max-w-6xl px-4 py-10">
-      <div className="mb-8">
-        <h1 className="font-serif text-3xl font-bold tracking-tight text-[var(--color-footer)]">
-          Closeout Jewelry Catalog
-        </h1>
-        <p className="text-[var(--foreground)]/70 mt-2 max-w-2xl">
-          Browse our current closeout inventory. Add pieces you&apos;re interested in and submit a
-          quote request — we&apos;ll get back to you with pricing and availability.
-        </p>
-      </div>
+  const totalPages = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
+  const requestedPage = typeof params.page === "string" ? parseInt(params.page, 10) : 1;
+  const page = Number.isFinite(requestedPage)
+    ? Math.min(Math.max(requestedPage, 1), totalPages)
+    : 1;
+  const pageItems = items.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
-      <div className="sm:flex sm:items-start sm:gap-8">
+  return (
+    <>
+      <section className="hero-band">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:py-20">
+          <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight mt-3 text-[var(--color-footer)]">
+            Jewelry <span className="brand-gradient-text">Catalog</span>
+          </h1>
+          <p className="text-[var(--foreground)]/70 mt-4 max-w-2xl text-base sm:text-lg leading-relaxed">
+            Browse our current inventory. Add pieces you&apos;re interested in and submit a
+            quote request we&apos;ll get back to you with pricing and availability.
+          </p>
+          <p className="mt-6 text-sm text-[var(--foreground)]/55">
+            {items.length.toLocaleString()} {items.length === 1 ? "piece" : "pieces"}
+            {selectedMetal || selectedCategory ? " match your filters" : " available"}
+            {totalPages > 1 ? ` · page ${page} of ${totalPages}` : ""}
+          </p>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:flex sm:items-start sm:gap-8">
         <FilterSidebar
           metals={metals}
           categories={categories}
@@ -40,14 +57,22 @@ export default async function Home({ searchParams }: PageProps<"/">) {
           {items.length === 0 ? (
             <p className="text-[var(--foreground)]/60">No items found.</p>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              {items.map((item) => (
-                <ProductCard key={item.id} item={item} />
-              ))}
-            </div>
+            <>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                {pageItems.map((item) => (
+                  <ProductCard key={item.id} item={item} />
+                ))}
+              </div>
+              <Pagination
+                page={page}
+                totalPages={totalPages}
+                metal={selectedMetal}
+                category={selectedCategory}
+              />
+            </>
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 }

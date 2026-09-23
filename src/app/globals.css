@@ -2,11 +2,14 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0f2a3d;
-  --color-header: #bfe3fb;
-  --color-footer: #0d3a63;
-  --color-accent: #1d7fd1;
-  --color-accent-dark: #15619f;
+  --foreground: #2b2f33;
+  --color-header: #ffffff;
+  --color-footer: #26343b;
+  --color-accent: #0a838f;
+  --color-accent-dark: #076a74;
+  --color-tint: #eef9f8;
+  --brand-sky: #4cc6f5;
+  --brand-mint: #38df90;
 }
 
 @theme inline {
@@ -22,9 +25,39 @@ body {
   color: var(--foreground);
 }
 
+.brand-gradient {
+  background-image: linear-gradient(90deg, var(--brand-sky), var(--brand-mint));
+}
+
+.brand-gradient-text {
+  background-image: linear-gradient(90deg, #1ea9dd, #1fbf75);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-band {
+  background:
+    radial-gradient(60rem 24rem at 85% -10%, rgb(76 198 245 / 0.22), transparent 60%),
+    radial-gradient(48rem 22rem at 0% 110%, rgb(56 223 144 / 0.18), transparent 60%),
+    #f6fcfb;
+}
+
 details > summary {
   list-style: none;
 }
 details > summary::-webkit-details-marker {
   display: none;
+}
+
+input,
+textarea {
+  background: #fff;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgb(10 131 143 / 0.18);
 }

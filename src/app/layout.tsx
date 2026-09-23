@@ -20,8 +20,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Jewel Source — Closeout Jewelry Catalog",
-  description: "Browse our closeout jewelry catalog and request a quote.",
+  title: "Jewel Source",
+  description: "Browse our jewelry catalog and request a quote.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

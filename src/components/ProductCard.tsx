@@ -10,8 +10,11 @@ export default function ProductCard({ item }: { item: JewelryItem }) {
     .join(" + ");
 
   return (
-    <Link href={`/jewelry/${item.id}`} className="group block text-center">
-      <div className="relative aspect-square bg-sky-50 rounded-lg overflow-hidden">
+    <Link
+      href={`/jewelry/${item.id}`}
+      className="group block text-center rounded-2xl border border-[var(--color-accent)]/10 bg-white p-2 pb-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgb(10_131_143/0.35)] hover:border-[var(--color-accent)]/30"
+    >
+      <div className="relative aspect-square bg-[var(--color-tint)] rounded-xl overflow-hidden">
         {photo ? (
           <Image
             src={photo.url}
@@ -32,7 +35,7 @@ export default function ProductCard({ item }: { item: JewelryItem }) {
           </span>
         </div>
       </div>
-      <div className="pt-3">
+      <div className="pt-3 px-2">
         <p className="text-[11px] uppercase tracking-widest text-[var(--color-accent-dark)] font-medium">
           {item.category}
           {weightLabel ? ` · ${weightLabel}` : ""}

@@ -39,7 +39,7 @@ export default async function JewelryDetail({ params }: PageProps<"/jewelry/[id]
             item.photos.map((photo, i) => (
               <div
                 key={photo.url}
-                className={`relative aspect-square bg-sky-50 rounded-lg overflow-hidden ${i === 0 ? "col-span-2" : ""}`}
+                className={`relative aspect-square bg-[var(--color-tint)] rounded-2xl overflow-hidden ${i === 0 ? "col-span-2" : ""}`}
               >
                 <Image
                   src={photo.url}
@@ -52,7 +52,7 @@ export default async function JewelryDetail({ params }: PageProps<"/jewelry/[id]
               </div>
             ))
           ) : (
-            <div className="col-span-2 aspect-square bg-sky-50 rounded-lg flex items-center justify-center text-[var(--foreground)]/30">
+            <div className="col-span-2 aspect-square bg-[var(--color-tint)] rounded-2xl flex items-center justify-center text-[var(--foreground)]/30">
               No photo available
             </div>
           )}

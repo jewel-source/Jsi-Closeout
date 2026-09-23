@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useQuoteCart } from "@/context/QuoteCartContext";
 
@@ -10,19 +11,28 @@ export default function Header() {
 
   const navLinks = (
     <>
-      <Link href="/" className="hover:opacity-80" onClick={() => setPanelOpen(false)}>
+      <Link href="/" className="hover:text-[var(--color-accent)] transition-colors" onClick={() => setPanelOpen(false)}>
         Catalog
       </Link>
-      <Link href="/quote" className="hover:opacity-80" onClick={() => setPanelOpen(false)}>
-        Quote Request{items.length > 0 ? ` (${items.length})` : ""}
+      <Link
+        href="/quote"
+        className="inline-flex items-center gap-2 sm:rounded-full sm:bg-[var(--color-accent)] sm:text-white sm:px-4 sm:py-1.5 sm:hover:bg-[var(--color-accent-dark)] transition-colors"
+        onClick={() => setPanelOpen(false)}
+      >
+        Quote Request
+        {items.length > 0 && (
+          <span className="rounded-full bg-white/25 sm:bg-white/25 px-1.5 text-xs leading-5">
+            {items.length}
+          </span>
+        )}
       </Link>
     </>
   );
 
   return (
     <>
-      <header className="sticky top-0 z-20 bg-[var(--color-header)]">
-        <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-20 bg-[var(--color-header)]/95 backdrop-blur">
+        <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
           <button
             onClick={() => setPanelOpen(true)}
             className="sm:hidden p-1 -ml-1"
@@ -35,16 +45,24 @@ export default function Header() {
             </svg>
           </button>
 
-          <Link href="/" className="font-serif text-xl font-bold tracking-wide text-[var(--color-footer)]">
-            Jewel Source
+          <Link href="/" aria-label="Jewel Source home" className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="Jewel Source"
+              width={1148}
+              height={404}
+              priority
+              className="h-10 sm:h-11 w-auto"
+            />
           </Link>
 
-          <nav className="hidden sm:flex items-center gap-6 text-sm font-medium text-[var(--color-footer)]">
+          <nav className="hidden sm:flex items-center gap-8 text-sm font-medium text-[var(--color-footer)]">
             {navLinks}
           </nav>
 
           <div className="sm:hidden w-8" />
         </div>
+        <div className="brand-gradient h-[3px]" />
       </header>
 
       {panelOpen && (

@@ -59,7 +59,7 @@ export default function QuoteForm() {
   }
   if (status === "success") {
     return (
-      <div className="rounded-lg border border-[var(--color-accent)]/20 p-6 text-center">
+      <div className="rounded-2xl bg-[var(--color-tint)] border border-[var(--color-accent)]/20 p-8 text-center">
         <h2 className="text-lg font-semibold">Quote request sent</h2>
         <p className="text-[var(--foreground)]/60 mt-2">
           Thanks — we&apos;ll be in touch shortly at the email you provided.

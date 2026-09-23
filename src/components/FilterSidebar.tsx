@@ -21,7 +21,7 @@ function FilterLink({
   return (
     <Link
       href={href}
-      className={`flex items-center px-2 py-1.5 rounded text-sm ${
+      className={`flex items-center px-2 py-1.5 rounded-lg text-sm ${
         active
           ? "bg-[var(--color-accent)] text-white font-medium"
           : "text-[var(--foreground)]/75 hover:bg-[var(--color-accent)]/10"
@@ -41,7 +41,7 @@ function FilterSection({
   children: React.ReactNode;
 }) {
   return (
-    <details open className="border border-[var(--color-accent)]/20 rounded-lg mb-3 px-3 py-2">
+    <details open className="border border-[var(--color-accent)]/20 rounded-2xl mb-3 px-4 py-2 bg-white">
       <summary className="flex items-center justify-between cursor-pointer text-xs font-semibold uppercase tracking-widest text-[var(--color-footer)] py-1">
         {title}
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="w-2.5 h-2.5 fill-current">
