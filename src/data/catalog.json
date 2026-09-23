@@ -40852,6 +40852,24 @@
     ]
   },
   {
+    "id": "lcr28718b-2",
+    "styleNumber": "LCR28718B",
+    "name": "10KY Diamond Rings",
+    "description": "10KY Rings featuring Diamond, total weight 0.5 ctw.",
+    "category": "Rings",
+    "metal": "Gold",
+    "stone": "Diamond",
+    "ctw": "0.5",
+    "quantityAvailable": 4,
+    "price": 79,
+    "photos": [
+      {
+        "url": "/api/immich-image/5be8da8f-dfb8-4c5a-9761-cf4518cb375f/preview",
+        "alt": "LCR28718B photo 1"
+      }
+    ]
+  },
+  {
     "id": "ger26723p",
     "styleNumber": "GER26723P",
     "name": "14KY Diamond Earrings",
@@ -50883,7 +50901,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "0.25",
-    "quantityAvailable": 11,
+    "quantityAvailable": 13,
     "price": 58.41,
     "photos": [
       {
@@ -58023,7 +58041,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "1",
-    "quantityAvailable": 1,
+    "quantityAvailable": 35,
     "price": 541.55,
     "photos": [
       {
@@ -60025,7 +60043,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "2.3",
-    "quantityAvailable": 6,
+    "quantityAvailable": 8,
     "price": 456.58,
     "photos": [
       {
@@ -61832,7 +61850,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "0.5",
-    "quantityAvailable": 29,
+    "quantityAvailable": 23,
     "price": 203.05,
     "photos": [
       {
@@ -61858,7 +61876,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "0.5",
-    "quantityAvailable": 38,
+    "quantityAvailable": 37,
     "price": 202.43,
     "photos": [
       {
@@ -62859,7 +62877,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "1",
-    "quantityAvailable": 13,
+    "quantityAvailable": 2,
     "price": 183.68,
     "photos": [
       {
