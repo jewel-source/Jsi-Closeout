@@ -87,11 +87,7 @@ function decodeSlashGemCode(code: string): string | undefined {
 }
 export function decodeGemCode(code: string): string {
   const upper = code.toUpperCase();
-<<<<<<< HEAD
   const alreadyFullWord = GEM_KEYWORDS.find((g) => g.pattern.toUpperCase() === upper)?.label;
-=======
-  const alreadyFullWord = GEM_KEYWORDS.find((g) => g.toUpperCase() === upper);
->>>>>>> 955bd9e87236a476cd9e9b75b70c253f3fad6834
   return (
     alreadyFullWord ??
     GEM_CODE_MAP[upper] ??

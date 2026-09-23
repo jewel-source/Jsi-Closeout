@@ -5,14 +5,9 @@ import type { JewelryItem } from "@/lib/types";
 
 export default function ProductCard({ item }: { item: JewelryItem }) {
   const photo = item.photos[0];
-<<<<<<< HEAD
   const weightLabel = [item.gtw && `${item.gtw} GTW`, item.ctw && `${item.ctw} CTW`]
     .filter(Boolean)
     .join(" + ");
-=======
-  const isDiamond = /diamond/i.test(item.stone ?? "") || /diamond/i.test(item.category);
-  const weightLabel = item.caratWeight ? `${item.caratWeight} ${isDiamond ? "CTW" : "GTW"}` : undefined;
->>>>>>> 955bd9e87236a476cd9e9b75b70c253f3fad6834
 
   return (
     <Link href={`/jewelry/${item.id}`} className="group block text-center">
