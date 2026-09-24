@@ -1,5 +1,6 @@
 "use client";
 import { useQuoteCart } from "@/context/QuoteCartContext";
+import QuantityInput from "./QuantityInput";
 export default function QuoteCartList() {
   const { items, removeItem, setQuantity } = useQuoteCart();
   if (items.length === 0) {
@@ -27,13 +28,10 @@ export default function QuoteCartList() {
             <label className="text-sm text-[var(--foreground)]/60" htmlFor={`qty-${item.id}`}>
               Qty
             </label>
-            <input
+            <QuantityInput
               id={`qty-${item.id}`}
-              type="number"
-              min={1}
               value={item.quantity}
-              onChange={(e) => setQuantity(item.id, Number(e.target.value))}
-              className="w-20 h-10 border border-[var(--color-accent)]/30 rounded-md px-2"
+              onChange={(q) => setQuantity(item.id, q)}
             />
             <button
               onClick={() => removeItem(item.id)}

@@ -46,12 +46,11 @@ items) so you can see the layout before hooking up real data.
    ```bash
    npm run import-catalog
    ```
-   This downloads every `.xlsx`/`.xls` file under `SEAFILE_FOLDER_PATH` (including
-   sold lists such as `SILVER LAB-GEM- All Sold.xlsx` — sold pieces can be
-   ordered again, so they are intentionally kept in the catalog), reads
+   This downloads every `.xlsx`/`.xls` file under `SEAFILE_FOLDER_PATH`, reads
    **every sheet tab** in each workbook (not just the first — some files split
    e.g. "Mens Jewelry" or "Station Necklaces" into their own tabs). It matches columns like Style #, Desc,
-   Metal, Gem, Qty, Price (case-insensitive, several header spellings supported
+   Metal, Gem, Qty, Price (the plain `Price` column, or `TAG Price` in the srj
+   samples file — never the internal `Cost` column) (case-insensitive, several header spellings supported
    — see `COLUMN_ALIASES` in `scripts/import-catalog.ts`), searches Immich for
    each style's photos (edit-distance matching against the photo's own filename
    code, tolerant of dropped/typo'd characters and inconsistent naming, but
@@ -62,11 +61,20 @@ items) so you can see the layout before hooking up real data.
    exists. Two style numbers landing on the same generated id (a duplicate row
    within one sheet, or the same style repeated across sheets) are handled
    automatically — same-file duplicates are merged into one listing (with
-   quantity summed internally, even though quantity isn't shown on the site),
-   while the same style genuinely appearing in two different source files
-   (e.g. a "Picture Sheet"/"srj samples" file vs. the master GOLD/SILVER LAB
-   file) is kept as two separate listings with a disambiguated id
+   quantity summed across in-stock rows),
+   and the same style appearing in different source files with
+   identical details (description, metal, size, category, stone, weights) is
+   de-duplicated to a single listing — the in-stock one wins over a sold one,
+   then the one that has a price. A style whose details genuinely differ
+   between files is kept as separate listings with a disambiguated id
    (`style`, `style-2`, ...). The end of the import logs how many of each it did.
+   **Sold vs. in stock:** a row is sold when both `Company` and `Memo/Invoice`
+   are filled, the quantity is 0, or the whole file has "sold" in its name.
+   Rows whose Style cell is a note rather than a style number (e.g. "JB01029BT8
+   - DUPLICATE ONLY FOR RECORDS", "ALL SHIPPED") are skipped. Sold pieces stay in
+   the catalog because they can be reordered, but they live on a separate
+   **Sold Out** tab and show only a price. **In Stock** pieces show price and
+   quantity. A style with any in-stock row counts as in stock.
 3. **Sheets like `SILVER GEMSTONE.xlsx` don't have a customer-facing name or
    description column** — just an internal `Desc` field like
    `SS 25.50GTW AQ BRACELET 7.5"`. `scripts/lib/parse.ts` parses jewelry type,

@@ -4,6 +4,7 @@ import { getCatalog, getItem } from "@/lib/catalog";
 import AddToQuoteButton from "@/components/AddToQuoteButton";
 import BackToCatalogLink from "@/components/BackToCatalogLink";
 import type { JewelryItem } from "@/lib/types";
+import { formatPrice } from "@/lib/format";
 
 export function generateStaticParams() {
   return getCatalog().map((item) => ({ id: item.id }));
@@ -66,6 +67,19 @@ export default async function JewelryDetail({ params }: PageProps<"/jewelry/[id]
             {item.name}
           </h1>
           <p className="text-[var(--foreground)]/50 text-sm mt-1">{item.styleNumber}</p>
+
+          {formatPrice(item.price) && (
+            <div className="mt-5 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+              <p className="text-3xl font-semibold text-[var(--color-accent-dark)]">
+                {formatPrice(item.price)}
+              </p>
+              {!item.soldOut && item.quantityAvailable !== undefined && (
+                <p className="text-sm text-[var(--foreground)]/60">
+                  {item.quantityAvailable.toLocaleString()} available
+                </p>
+              )}
+            </div>
+          )}
 
           <p className="mt-6 text-[var(--foreground)]/80 leading-relaxed">{item.description}</p>
 

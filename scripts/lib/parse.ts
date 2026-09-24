@@ -219,15 +219,8 @@ export function buildNameAndDescription(parts: {
   }
   let sentence = `${parts.metalLabel ?? ""} ${typeLabel}`.trim();
   if (stonePart) sentence += ` featuring ${stonePart}`;
-  // GTW is the gemstone's own weight, CTW is diamond-accent weight — a piece
-  // can have either, or both at once (e.g. a colored stone with a pave
-  // diamond halo), so each is reported separately rather than picking one.
-  if (parts.gtw) sentence += `, total gem weight ${parts.gtw} ctw`;
-  if (parts.ctw) {
-    sentence += parts.gtw
-      ? ` plus ${parts.ctw} ctw diamond accents`
-      : `, total weight ${parts.ctw} ctw`;
-  }
+  if (parts.gtw) sentence += `, total gem weight ${parts.gtw} GTW`;
+  if (parts.ctw) sentence += `, total carat weight ${parts.ctw} CTW`;
   if (parts.sizeText) sentence += `, size ${parts.sizeText}`;
   sentence += ".";
   return { name, description: capitalize(sentence) };
@@ -242,4 +235,17 @@ export function deriveMetalAndStoneFromFilename(fileBaseName: string): {
   const metal = titleCase(parts[0]);
   const stoneRaw = parts.slice(1).join(" ").replace(/-+$/, "").trim();
   return { metal, stone: stoneRaw ? titleCase(stoneRaw) : undefined };
+}
+export function extractWeightsFromText(text: string): {
+  ctw?: string;
+  gtw?: string;
+} {
+  const result: { ctw?: string; gtw?: string } = {};
+  for (const match of text.matchAll(/(\d+(?:\.\d+)?)\s*(CTW|GTW)/gi)) {
+    const value = String(Number(match[1]));
+    if (Number(value) <= 0) continue;
+    const key = match[2].toUpperCase() === "CTW" ? "ctw" : "gtw";
+    result[key] ??= value;
+  }
+  return result;
 }

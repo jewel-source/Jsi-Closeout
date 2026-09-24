@@ -1,18 +1,6 @@
 import Link from "next/link";
 import LinkPendingSpinner from "./LinkPendingSpinner";
-
-function buildHref(
-  page: number,
-  metal: string | undefined,
-  category: string | undefined,
-) {
-  const params = new URLSearchParams();
-  if (metal) params.set("metal", metal);
-  if (category) params.set("category", category);
-  if (page > 1) params.set("page", String(page));
-  const qs = params.toString();
-  return qs ? `/?${qs}` : "/";
-}
+import { buildCatalogHref, type CatalogStatus } from "@/lib/catalogUrl";
 
 function pageWindow(current: number, total: number): (number | "gap")[] {
   const pages = new Set([1, total, current - 1, current, current + 1]);
@@ -35,19 +23,26 @@ export default function Pagination({
   totalPages,
   metal,
   category,
+  qty,
+  sort,
+  status,
 }: {
   page: number;
   totalPages: number;
   metal?: string;
   category?: string;
+  qty?: string;
+  sort?: string;
+  status: CatalogStatus;
 }) {
+  const hrefFor = (target: number) => buildCatalogHref({ status, metal, category, qty, sort, page: target });
   if (totalPages <= 1) return null;
 
   return (
     <nav aria-label="Pagination" className="mt-10 flex flex-wrap items-center justify-center gap-1.5">
       {page > 1 ? (
         <Link
-          href={buildHref(page - 1, metal, category)}
+          href={hrefFor(page - 1)}
           className={`${baseClass} text-[var(--color-accent-dark)] hover:bg-[var(--color-tint)]`}
         >
           Previous
@@ -72,7 +67,7 @@ export default function Pagination({
         ) : (
           <Link
             key={p}
-            href={buildHref(p, metal, category)}
+            href={hrefFor(p)}
             className={`${baseClass} text-[var(--foreground)]/75 hover:bg-[var(--color-tint)]`}
           >
             {p}
@@ -83,7 +78,7 @@ export default function Pagination({
 
       {page < totalPages ? (
         <Link
-          href={buildHref(page + 1, metal, category)}
+          href={hrefFor(page + 1)}
           className={`${baseClass} text-[var(--color-accent-dark)] hover:bg-[var(--color-tint)]`}
         >
           Next

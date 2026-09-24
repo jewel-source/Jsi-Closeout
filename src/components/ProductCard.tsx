@@ -2,12 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import LinkPendingSpinner from "./LinkPendingSpinner";
 import type { JewelryItem } from "@/lib/types";
+import { formatPrice } from "@/lib/format";
 
 export default function ProductCard({ item }: { item: JewelryItem }) {
   const photo = item.photos[0];
-  const weightLabel = [item.gtw && `${item.gtw} GTW`, item.ctw && `${item.ctw} CTW`]
-    .filter(Boolean)
-    .join(" + ");
+  const price = formatPrice(item.price);
+  const showQty = !item.soldOut && item.quantityAvailable !== undefined;
 
   return (
     <Link
@@ -42,11 +42,37 @@ export default function ProductCard({ item }: { item: JewelryItem }) {
       <div className="pt-3 px-2">
         <p className="text-[11px] uppercase tracking-widest text-[var(--color-accent-dark)] font-medium">
           {item.category}
-          {weightLabel ? ` · ${weightLabel}` : ""}
         </p>
         <p className="text-sm text-[var(--foreground)]/75 mt-0.5 leading-snug line-clamp-2">
           {item.description}
         </p>
+        {(item.gtw || item.ctw) && (
+          <p className="mt-1.5 flex flex-wrap items-center justify-center gap-1.5 text-xs">
+            {item.gtw && (
+              <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-emerald-800">
+                <span className="font-semibold">GTW</span> {item.gtw}
+              </span>
+            )}
+            {item.ctw && (
+              <span className="rounded-full bg-sky-50 px-2.5 py-0.5 text-sky-800">
+                <span className="font-semibold">CTW</span> {item.ctw}
+              </span>
+            )}
+          </p>
+        )}
+        {(price || showQty) && (
+          <p className="mt-2 flex items-center justify-center gap-2 text-sm">
+            {price && (
+              <span className="font-semibold text-[var(--color-footer)]">{price}</span>
+            )}
+            {price && showQty && <span className="text-[var(--foreground)]/25">·</span>}
+            {showQty && (
+              <span className="text-[var(--foreground)]/60">
+                Qty {item.quantityAvailable?.toLocaleString()}
+              </span>
+            )}
+          </p>
+        )}
       </div>
     </Link>
   );

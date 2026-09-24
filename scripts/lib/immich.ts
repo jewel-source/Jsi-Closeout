@@ -192,7 +192,7 @@ function rankKey(
       .replace(/[^A-Z0-9]+$/, "");
     return [2, 0, prefix];
   }
-  return [3, 0, base];
+  return [3, base.length, base];
 }
 function compareRankKeys(
   a: [number, number, string],
@@ -307,27 +307,114 @@ function pickByMetalContext(
   }
   return matches.length > 0 ? { code: coreSku, assets: matches } : undefined;
 }
+type Match = { code: string; assets: ImmichAsset[]; sorted?: boolean };
+function splitSizeToken(base: string): {
+  remainder: string;
+  sizeDigits: string;
+  variant: number;
+} {
+  const variantMatch = base.match(/(?:\s*\((\d+)\)|_(\d+))\s*$/);
+  const variant = variantMatch ? Number(variantMatch[1] ?? variantMatch[2]) : 0;
+  const withoutVariant = base.replace(/(?:\s*\(\d+\)|_\d+)\s*$/, "");
+  const match = withoutVariant.match(/^(.*\S)[\s_-]+-?\s*(\d+(?:\.\d+)?)$/);
+  if (!match) return { remainder: withoutVariant, sizeDigits: "", variant };
+  return {
+    remainder: match[1],
+    sizeDigits: match[2].replace(/\D/g, ""),
+    variant,
+  };
+}
+function permutations<T>(items: T[]): T[][] {
+  if (items.length <= 1) return [items];
+  return items.flatMap((item, i) =>
+    permutations([...items.slice(0, i), ...items.slice(i + 1)]).map((rest) => [
+      item,
+      ...rest,
+    ]),
+  );
+}
+function tokensMatchCore(remainder: string, core: string): boolean {
+  const [head, ...rest] = remainder.split(/[^A-Z0-9]+/).filter(Boolean);
+  if (!head || rest.length > 4 || !core.startsWith(head)) return false;
+  return permutations(rest).some((order) => head + order.join("") === core);
+}
+/**
+ * Some photo libraries name each design by delimited parts rather than one
+ * fused code — "JB01029 CIT YP 6.75.jpg" is base JB01029 + gem CIT + plating
+ * YP + size 6.75, while the spreadsheet fuses the same parts into
+ * "JB01029CITYP725" and appends the item's own size. Neither Immich's
+ * substring search nor edit distance can bridge that (the delimiters block
+ * the substring, and the size digits differ), so this splits the filename
+ * into the same parts and requires the non-size parts, concatenated (in any
+ * order after the base, since "YP CIT" and "CIT YP" both occur), to equal the
+ * sku minus its size — exact evidence only, no fuzzy scoring. A design is
+ * usually photographed at one size and shared by its other sizes, so photos
+ * of the exact size win when present, otherwise the design's photos at any
+ * size are used.
+ */
+function pickByTokenFamily(
+  sku: string,
+  candidates: ImmichAsset[],
+  context: PhotoMatchContext | undefined,
+): Match | undefined {
+  const sizeDigits = (context?.size ?? "").replace(/[^0-9]/g, "");
+  const core =
+    sizeDigits && sku.length > sizeDigits.length && sku.endsWith(sizeDigits)
+      ? sku.slice(0, -sizeDigits.length)
+      : sku;
+  if (core.length < 8) return undefined;
+  const knownSize = core !== sku ? sizeDigits : "";
+  const family: { asset: ImmichAsset; sizeDigits: string; variant: number }[] = [];
+  for (const asset of candidates) {
+    const base = normalizeFilenameBase(stripExtension(asset.originalFileName));
+    const split = splitSizeToken(base);
+    if (!tokensMatchCore(split.remainder, core)) continue;
+    family.push({ asset, sizeDigits: split.sizeDigits, variant: split.variant });
+  }
+  if (family.length === 0) return undefined;
+  const sameSize = knownSize
+    ? family.filter((f) => f.sizeDigits === knownSize)
+    : [];
+  const sizeless = family.filter((f) => f.sizeDigits === "");
+  const chosen = sameSize.length > 0 ? [...sameSize, ...sizeless] : family;
+  chosen.sort(
+    (a, b) =>
+      a.variant - b.variant ||
+      a.asset.originalFileName.localeCompare(b.asset.originalFileName),
+  );
+  return { code: core, assets: chosen.map((f) => f.asset), sorted: true };
+}
 async function searchRaw(
   config: ImmichConfig,
   query: string,
+  { pageSize = 50, maxPages = 1 }: { pageSize?: number; maxPages?: number } = {},
 ): Promise<ImmichAsset[]> {
-  const res = await fetch(
-    `${config.baseUrl.replace(/\/$/, "")}/search/metadata`,
-    {
-      method: "POST",
-      headers: { ...authHeaders(config), "Content-Type": "application/json" },
-      body: JSON.stringify({ originalFileName: query, page: 1, size: 50 }),
-    },
-  );
-  if (!res.ok) {
-    throw new Error(
-      `Immich search failed for "${query}": ${res.status} ${await res.text()}`,
+  const found: ImmichAsset[] = [];
+  for (let page = 1; page <= maxPages; page++) {
+    const res = await fetch(
+      `${config.baseUrl.replace(/\/$/, "")}/search/metadata`,
+      {
+        method: "POST",
+        headers: { ...authHeaders(config), "Content-Type": "application/json" },
+        body: JSON.stringify({ originalFileName: query, page, size: pageSize }),
+      },
     );
+    if (!res.ok) {
+      throw new Error(
+        `Immich search failed for "${query}": ${res.status} ${await res.text()}`,
+      );
+    }
+    const data = (await res.json()) as unknown;
+    found.push(
+      ...extractAssetItems(data).filter(
+        (a) => a.originalFileName && isImageFile(a.originalFileName),
+      ),
+    );
+    const nextPage = (data as { assets?: { nextPage?: string | null } })?.assets
+      ?.nextPage;
+    if (!nextPage) break;
   }
-  const data = (await res.json()) as unknown;
-  return extractAssetItems(data).filter(
-    (a) => a.originalFileName && isImageFile(a.originalFileName),
-  );
+  return found;
 }
 export async function searchAssetsByFilename(
   config: ImmichConfig,
@@ -348,24 +435,80 @@ export async function searchAssetsByFilename(
       candidates.set(asset.id, asset);
     }
   }
-  const pool = [...candidates.values()];
-  let best = pickBestMatch(sku, pool);
-  if (!best) best = pickByMetalContext(sku, pool, context);
+  let pool = [...candidates.values()];
+  let best: Match | undefined = pickBestMatch(sku, pool);
+  let matchedByPlating = false;
+  if (!best) {
+    best = pickByMetalContext(sku, pool, context);
+    matchedByPlating = Boolean(best);
+  }
   if (!best) {
     for (const variant of contextVariants) {
       best = pickBestMatch(variant, pool);
       if (best) break;
     }
   }
+  if (!best || best.code !== sku) {
+    const sizeDigits = (context?.size ?? "").replace(/[^0-9]/g, "");
+    const core =
+      sizeDigits && sku.length > sizeDigits.length && sku.endsWith(sizeDigits)
+        ? sku.slice(0, -sizeDigits.length)
+        : sku;
+    const familyAnchor = searchAnchor(core);
+    if (familyAnchor.length >= 5) {
+      const widePool = new Map(candidates);
+      for (const asset of await searchRaw(config, familyAnchor, {
+        pageSize: 250,
+        maxPages: 3,
+      })) {
+        widePool.set(asset.id, asset);
+      }
+      pool = [...widePool.values()];
+      const family = pickByTokenFamily(sku, pool, context);
+      if (family && best && matchedByPlating) {
+        const known = new Set(best.assets.map((asset) => asset.id));
+        best = {
+          code: best.code,
+          assets: [
+            ...best.assets,
+            ...family.assets.filter((asset) => !known.has(asset.id)),
+          ],
+        };
+      } else if (family) {
+        best = family;
+      }
+    }
+  }
   if (!best) return [];
-  const matches = best.assets;
-  matches.sort((a, b) =>
-    compareRankKeys(
-      rankKey(a.originalFileName, best.code),
-      rankKey(b.originalFileName, best.code),
-    ),
+  const matches = [...best.assets];
+  const exactStrippedGroup = matches.every(
+    (asset) =>
+      extractFullyStrippedCode(
+        normalizeFilenameBase(stripExtension(asset.originalFileName)),
+      ) === sku,
   );
-  return matches;
+  if (exactStrippedGroup) {
+    const known = new Set(matches.map((asset) => asset.id));
+    for (const asset of pickByEmbeddedSuffix(sku, pool)?.assets ?? []) {
+      if (!known.has(asset.id)) matches.push(asset);
+    }
+  }
+  if (!best.sorted) {
+    const code = best.code;
+    matches.sort((a, b) =>
+      compareRankKeys(
+        rankKey(a.originalFileName, code),
+        rankKey(b.originalFileName, code),
+      ),
+    );
+  }
+  const seenNames = new Set<string>();
+  return matches.filter((asset) => {
+    const key = asset.originalFileName.toLowerCase();
+    if (seenNames.has(key)) return false;
+    seenNames.add(key);
+    return true;
+  });
 }
 function extractAssetItems(data: unknown): ImmichAsset[] {
   if (Array.isArray(data)) return data as ImmichAsset[];

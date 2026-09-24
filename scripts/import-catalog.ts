@@ -17,6 +17,7 @@ import {
   extractGemsFromText,
   extractJewelryType,
   extractInchSize,
+  extractWeightsFromText,
   decodeMetal,
   decodeGemCode,
   coarseMetal,
@@ -51,7 +52,8 @@ const COLUMN_ALIASES: Record<string, string[]> = {
   // "CTW /GTW" (seen combined into one column on some sheets) is treated as
   // CTW — every sheet observed using that combined header is a pure-diamond
   // sheet (Type/Diam = lab-grown diamond, no separate Gem value).
-  ctw: ["ctw", "tctw", "total ctw", "total carat", "ct tw", "carat weight", "ctw /gtw", "ctw/gtw"],
+  ctw: ["ctw", "tctw", "total ctw", "total carat", "ct tw", "carat weight"],
+  ctwGtw: ["ctw /gtw", "ctw/gtw", "ctw / gtw"],
   gtw: ["gtw", "tgtw", "total gtw"],
   quantityAvailable: [
     "qty",
@@ -61,14 +63,49 @@ const COLUMN_ALIASES: Record<string, string[]> = {
     "stock",
     "on hand",
   ],
-  price: ["price", "cost", "unit price", "wholesale price", "wholesale"],
+  price: ["price", "tag price"],
   collection: ["collection", "group", "lot"],
   closeoutYear: ["year", "closeout year"],
+  company: ["company"],
+  memoInvoice: [
+    "memo/invoice",
+    "memo / invoice",
+    "memo/ invoice",
+    "invoice/memo",
+    "invoice/ memo",
+    "invoice / memo",
+    "memo/invioce",
+    "memo/inv",
+    "inv/memo",
+    "memo",
+    "invoice",
+  ],
 };
 /** "0" or blank means "not applicable" for a weight column, not a real measurement. */
 function presentWeight(value: string | undefined): string | undefined {
   if (!value) return undefined;
   return Number(value) > 0 ? value : undefined;
+}
+function duplicateSignature(item: JewelryItem): string {
+  return [
+    item.styleNumber.toUpperCase(),
+    item.description,
+    item.metal,
+    item.size,
+    item.category,
+    item.stone,
+    item.ctw,
+    item.gtw,
+  ].join("|");
+}
+function isBetterListing(candidate: JewelryItem, current: JewelryItem): boolean {
+  if (Boolean(current.soldOut) !== Boolean(candidate.soldOut)) {
+    return Boolean(current.soldOut);
+  }
+  return current.price === undefined && candidate.price !== undefined;
+}
+function looksLikeNoteRow(styleNumber: string): boolean {
+  return /[A-Za-z]{3,}\s+[A-Za-z]{3,}/.test(styleNumber);
 }
 function normalizeHeader(header: string): string {
   return header.trim().toLowerCase();
@@ -189,10 +226,14 @@ async function main() {
   const unrecognizedGemCodes = new Set<string>();
   let sameFileMergedCount = 0;
   let crossFileDisambiguatedCount = 0;
+  let duplicateDroppedCount = 0;
+  let noteRowSkippedCount = 0;
+  const indexBySignature = new Map<string, number>();
   let cachedPhotoCount = 0;
   let freshPhotoSearchCount = 0;
   for (const filePath of excelFiles) {
     const fileName = path.basename(filePath);
+    const fileIsSoldList = /sold/i.test(fileName);
     console.log(`Downloading ${filePath}...`);
     const buffer = await downloadFile(config, filePath);
     const sheets = sheetsFromWorkbook(buffer);
@@ -215,6 +256,10 @@ async function main() {
       for (const row of rows) {
         const styleNumber = String(row[headerMap.styleNumber] ?? "").trim();
         if (!styleNumber) continue;
+        if (looksLikeNoteRow(styleNumber)) {
+          noteRowSkippedCount++;
+          continue;
+        }
         rowCount++;
         const get = (field: string) =>
           headerMap[field]
@@ -237,14 +282,26 @@ async function main() {
               : [];
         const metalLabel = decodeMetal(get("metal")) ?? fileMetal;
         const size = get("size") ?? extractInchSize(rawDesc);
-        const ctw = presentWeight(get("ctw"));
-        const gtw = presentWeight(get("gtw"));
+        const textWeights = extractWeightsFromText(rawDesc);
+        const combinedWeight = presentWeight(get("ctwGtw"));
+        const isGemstone = Boolean(gemCode);
+        const realCtw =
+          presentWeight(get("ctw")) ??
+          textWeights.ctw ??
+          (isGemstone || textWeights.gtw ? undefined : combinedWeight);
+        const realGtw =
+          presentWeight(get("gtw")) ??
+          textWeights.gtw ??
+          (isGemstone && !textWeights.ctw ? combinedWeight : undefined);
+        const hasAnyWeight = Boolean(realCtw || realGtw);
+        const ctw = isGemstone && hasAnyWeight ? (realCtw ?? "0") : realCtw;
+        const gtw = isGemstone && hasAnyWeight ? (realGtw ?? "0") : realGtw;
         const { name, description } = buildNameAndDescription({
           metalLabel,
           type,
           stones,
-          ctw,
-          gtw,
+          ctw: realCtw,
+          gtw: realGtw,
           sizeText: size,
           rawDesc,
           styleNumber,
@@ -253,12 +310,25 @@ async function main() {
         const rowQty = get("quantityAvailable")
           ? Number(get("quantityAvailable"))
           : undefined;
+        const rowPrice = get("price") ? Number(get("price")) : undefined;
+        const rowSold =
+          fileIsSoldList ||
+          Boolean(get("company") && get("memoInvoice")) ||
+          rowQty === 0;
         const existing = fileItems.get(baseId);
         if (existing) {
           sameFileMergedCount++;
-          if (rowQty !== undefined) {
-            existing.quantityAvailable =
-              (existing.quantityAvailable ?? 0) + rowQty;
+          if (!rowSold) {
+            if (existing.soldOut) {
+              existing.soldOut = false;
+              existing.quantityAvailable = rowQty;
+              existing.price = rowPrice ?? existing.price;
+            } else if (rowQty !== undefined) {
+              existing.quantityAvailable =
+                (existing.quantityAvailable ?? 0) + rowQty;
+            }
+          } else if (existing.price === undefined) {
+            existing.price = rowPrice;
           }
           continue;
         }
@@ -287,13 +357,30 @@ async function main() {
           gtw,
           collection: get("collection"),
           closeoutYear: get("closeoutYear"),
-          quantityAvailable: rowQty,
-          price: get("price") ? Number(get("price")) : undefined,
+          soldOut: rowSold,
+          quantityAvailable: rowSold ? undefined : rowQty,
+          price: rowPrice,
           photos,
         });
       }
     }
     for (const item of fileItems.values()) {
+      const signature = duplicateSignature(item);
+      const keptIndex = indexBySignature.get(signature);
+      if (keptIndex !== undefined) {
+        duplicateDroppedCount++;
+        const kept = items[keptIndex];
+        if (isBetterListing(item, kept)) {
+          items[keptIndex] = {
+            ...item,
+            id: kept.id,
+            photos: item.photos.length ? item.photos : kept.photos,
+          };
+        } else if (kept.photos.length === 0 && item.photos.length > 0) {
+          kept.photos = item.photos;
+        }
+        continue;
+      }
       let id = item.id;
       if (usedIds.has(id)) {
         crossFileDisambiguatedCount++;
@@ -302,6 +389,7 @@ async function main() {
         id = `${item.id}-${n}`;
       }
       usedIds.add(id);
+      indexBySignature.set(signature, items.length);
       items.push({ ...item, id });
     }
     console.log(`  Parsed ${rowCount} item(s) from ${fileName}.`);
@@ -311,7 +399,14 @@ async function main() {
   console.log(`Wrote ${items.length} items to ${OUTPUT_PATH}`);
   console.log(
     `  ${sameFileMergedCount} same-file duplicate row(s) merged into existing listings; ` +
-      `${crossFileDisambiguatedCount} cross-file id collision(s) disambiguated.`,
+      `${noteRowSkippedCount} note row(s) skipped (e.g. "DUPLICATE ONLY FOR RECORDS", "ALL SHIPPED"); ` +
+      `${duplicateDroppedCount} identical cross-file duplicate(s) dropped (one kept); ` +
+      `${crossFileDisambiguatedCount} remaining cross-file id collision(s) disambiguated.`,
+  );
+  const soldCount = items.filter((i) => i.soldOut).length;
+  const missingPrice = items.filter((i) => i.price === undefined).length;
+  console.log(
+    `  ${items.length - soldCount} in stock, ${soldCount} sold out; ${missingPrice} item(s) have no price.`,
   );
   const photoCounts = { zero: 0, one: 0, many: 0 };
   for (const item of items) {

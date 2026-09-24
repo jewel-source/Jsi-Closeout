@@ -3,16 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import LinkPendingSpinner from "./LinkPendingSpinner";
+import { QTY_RANGES, buildCatalogHref, type CatalogStatus } from "@/lib/catalogUrl";
 
-type FilterKey = "metal" | "category";
+type FilterKey = "metal" | "category" | "qty" | "sort";
+type Option = { value: string; label: string };
 
-function buildHref(metal: string | undefined, category: string | undefined) {
-  const params = new URLSearchParams();
-  if (metal) params.set("metal", metal);
-  if (category) params.set("category", category);
-  const qs = params.toString();
-  return qs ? `/?${qs}` : "/";
-}
+const toOptions = (values: string[]): Option[] => values.map((v) => ({ value: v, label: v }));
+const QTY_OPTIONS: Option[] = QTY_RANGES.map(({ value, label }) => ({ value, label }));
+const SORT_OPTIONS: Option[] = [{ value: "qty-desc", label: "Highest first" }];
 
 function Chevron({ open }: { open: boolean }) {
   return (
@@ -63,7 +61,7 @@ function FilterDropdown({
 }: {
   label: string;
   allLabel: string;
-  options: string[];
+  options: Option[];
   selected: string | undefined;
   open: boolean;
   onToggle: () => void;
@@ -71,6 +69,7 @@ function FilterDropdown({
   hrefFor: (value: string | undefined) => string;
 }) {
   const active = Boolean(selected);
+  const selectedLabel = options.find((o) => o.value === selected)?.label ?? selected;
 
   return (
     <div className="relative">
@@ -86,7 +85,7 @@ function FilterDropdown({
         }`}
       >
         <span className={active ? "text-white/75" : "text-[var(--foreground)]/50"}>{label}</span>
-        <span className="font-medium max-w-[9rem] truncate">{selected ?? allLabel}</span>
+        <span className="font-medium max-w-[9rem] truncate">{selectedLabel ?? allLabel}</span>
         <Chevron open={open} />
       </button>
 
@@ -107,11 +106,11 @@ function FilterDropdown({
               {label}
             </p>
             {[undefined, ...options].map((option) => {
-              const isSelected = option === selected;
+              const isSelected = option?.value === selected;
               return (
                 <Link
-                  key={option ?? "all"}
-                  href={hrefFor(option)}
+                  key={option?.value ?? "all"}
+                  href={hrefFor(option?.value)}
                   role="option"
                   aria-selected={isSelected}
                   onClick={onClose}
@@ -121,7 +120,7 @@ function FilterDropdown({
                       : "text-[var(--foreground)]/80 hover:bg-[var(--color-tint)]"
                   }`}
                 >
-                  <span>{option ?? allLabel}</span>
+                  <span>{option?.label ?? allLabel}</span>
                   <span className="flex items-center gap-2">
                     <LinkPendingSpinner size={12} />
                     {isSelected && <Check />}
@@ -141,11 +140,17 @@ export default function FilterBar({
   categories,
   selectedMetal,
   selectedCategory,
+  selectedQty,
+  selectedSort,
+  status,
 }: {
   metals: string[];
   categories: string[];
   selectedMetal?: string;
   selectedCategory?: string;
+  selectedQty?: string;
+  selectedSort?: string;
+  status: CatalogStatus;
 }) {
   const [openKey, setOpenKey] = useState<FilterKey | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -169,7 +174,14 @@ export default function FilterBar({
   }, [openKey]);
 
   const toggle = (key: FilterKey) => setOpenKey((current) => (current === key ? null : key));
-  const hasFilters = Boolean(selectedMetal || selectedCategory);
+  const hasFilters = Boolean(selectedMetal || selectedCategory || selectedQty);
+  const current = {
+    status,
+    metal: selectedMetal,
+    category: selectedCategory,
+    qty: selectedQty,
+    sort: selectedSort,
+  };
 
   return (
     <div ref={containerRef} className="flex flex-wrap items-center gap-2 sm:gap-3">
@@ -181,29 +193,54 @@ export default function FilterBar({
         <FilterDropdown
           label="Metal"
           allLabel="All"
-          options={metals}
+          options={toOptions(metals)}
           selected={selectedMetal}
           open={openKey === "metal"}
           onToggle={() => toggle("metal")}
           onClose={() => setOpenKey(null)}
-          hrefFor={(value) => buildHref(value, selectedCategory)}
+          hrefFor={(value) => buildCatalogHref({ ...current, metal: value })}
         />
       )}
 
       <FilterDropdown
         label="Category"
         allLabel="All"
-        options={categories}
+        options={toOptions(categories)}
         selected={selectedCategory}
         open={openKey === "category"}
         onToggle={() => toggle("category")}
         onClose={() => setOpenKey(null)}
-        hrefFor={(value) => buildHref(selectedMetal, value)}
+        hrefFor={(value) => buildCatalogHref({ ...current, category: value })}
       />
+
+      {status === "in-stock" && (
+        <>
+          <FilterDropdown
+            label="Qty"
+            allLabel="Any"
+            options={QTY_OPTIONS}
+            selected={selectedQty}
+            open={openKey === "qty"}
+            onToggle={() => toggle("qty")}
+            onClose={() => setOpenKey(null)}
+            hrefFor={(value) => buildCatalogHref({ ...current, qty: value })}
+          />
+          <FilterDropdown
+            label="Sort"
+            allLabel="Lowest qty first"
+            options={SORT_OPTIONS}
+            selected={selectedSort === "qty-desc" ? "qty-desc" : undefined}
+            open={openKey === "sort"}
+            onToggle={() => toggle("sort")}
+            onClose={() => setOpenKey(null)}
+            hrefFor={(value) => buildCatalogHref({ ...current, sort: value })}
+          />
+        </>
+      )}
 
       {hasFilters && (
         <Link
-          href="/"
+          href={buildCatalogHref({ status, sort: selectedSort })}
           className="inline-flex h-11 items-center gap-1.5 rounded-full px-3 text-sm font-medium text-[var(--color-accent-dark)] hover:bg-[var(--color-tint)]"
         >
           Clear all

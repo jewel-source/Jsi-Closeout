@@ -15,6 +15,7 @@ export interface JewelryItem {
   gtw?: string;
   collection?: string;
   closeoutYear?: string;
+  soldOut?: boolean;
   quantityAvailable?: number;
   price?: number;
   photos: JewelryPhoto[];
