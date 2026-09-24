@@ -20864,8 +20864,8 @@
     ]
   },
   {
-    "id": "jsp010s3068ttp",
-    "styleNumber": "JSP010S3068TTP",
+    "id": "jsp010a3068ttp",
+    "styleNumber": "JSP010A3068TTP",
     "name": "SILVER Diamond Pendants",
     "description": "SILVER Pendants featuring Diamond, total weight 0.1 ctw.",
     "category": "Pendants",
@@ -20874,7 +20874,32 @@
     "ctw": "0.1",
     "quantityAvailable": 22,
     "price": 20.05,
-    "photos": []
+    "photos": [
+      {
+        "url": "/api/immich-image/f61577fe-53d5-4957-921a-724091122ea9/preview",
+        "alt": "JSP010A3068TTP photo 1"
+      },
+      {
+        "url": "/api/immich-image/f8d76491-918e-46f3-ad3c-633414249d40/preview",
+        "alt": "JSP010A3068TTP photo 2"
+      },
+      {
+        "url": "/api/immich-image/5bfefabd-1607-4613-a383-d8ea644063b8/preview",
+        "alt": "JSP010A3068TTP photo 3"
+      },
+      {
+        "url": "/api/immich-image/8f19b268-5849-4313-be6d-6cf4c6a7345e/preview",
+        "alt": "JSP010A3068TTP photo 4"
+      },
+      {
+        "url": "/api/immich-image/443ca0b8-9495-499a-ab52-ed7e90726562/preview",
+        "alt": "JSP010A3068TTP photo 5"
+      },
+      {
+        "url": "/api/immich-image/c418d2c2-820e-4bfd-81a8-9d637edba506/preview",
+        "alt": "JSP010A3068TTP photo 6"
+      }
+    ]
   },
   {
     "id": "jsp010a3068yp",
@@ -26146,7 +26171,7 @@
     "metal": "Silver",
     "stone": "Blue Sapphire",
     "quantityAvailable": 379,
-    "price": 7,
+    "price": 8.42,
     "photos": []
   },
   {
@@ -30981,7 +31006,7 @@
     "metal": "Silver",
     "stone": "Multi-Gemstone",
     "ctw": "4.3",
-    "quantityAvailable": 505,
+    "quantityAvailable": 0,
     "price": 35.82,
     "photos": []
   },
@@ -30994,7 +31019,7 @@
     "metal": "Silver",
     "stone": "Multi-Gemstone",
     "ctw": "4.3",
-    "quantityAvailable": 299,
+    "quantityAvailable": 1,
     "price": 35.82,
     "photos": []
   },
@@ -33687,8 +33712,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1",
-    "quantityAvailable": 11,
-    "price": 48.25,
+    "quantityAvailable": 10,
+    "price": 46.94,
     "photos": [
       {
         "url": "/api/immich-image/b9f5db49-4b95-43a9-b5b3-39e3f175865f/preview",
@@ -35767,8 +35792,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1",
-    "quantityAvailable": 30,
-    "price": 47.35,
+    "quantityAvailable": 29,
+    "price": 47.15,
     "photos": [
       {
         "url": "/api/immich-image/7c2b9968-1768-489d-9dcb-53d806432889/preview",
@@ -35806,7 +35831,7 @@
     "stone": "Diamond",
     "ctw": "1",
     "quantityAvailable": 48,
-    "price": 39.09,
+    "price": 37.06,
     "photos": []
   },
   {
@@ -35819,7 +35844,7 @@
     "stone": "Diamond",
     "ctw": "1",
     "quantityAvailable": 25,
-    "price": 40.74,
+    "price": 40.5,
     "photos": []
   },
   {
@@ -36769,7 +36794,7 @@
     "stone": "Diamond",
     "ctw": "5.2",
     "quantityAvailable": 32,
-    "price": 231.17,
+    "price": 219.34,
     "photos": []
   },
   {
@@ -36782,7 +36807,7 @@
     "stone": "Diamond",
     "ctw": "5.2",
     "quantityAvailable": 37,
-    "price": 231.17,
+    "price": 218.7,
     "photos": []
   },
   {
@@ -37008,7 +37033,7 @@
     "stone": "Diamond",
     "ctw": "1",
     "quantityAvailable": 68,
-    "price": 58.9,
+    "price": 47.32,
     "photos": [
       {
         "url": "/api/immich-image/011426f5-91c4-426b-a775-f2eb3c59bb2d/preview",
@@ -37219,7 +37244,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "2",
-    "quantityAvailable": 126,
+    "quantityAvailable": 129,
     "price": 102.09,
     "photos": [
       {
@@ -37347,7 +37372,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1",
-    "quantityAvailable": 69,
+    "quantityAvailable": 68,
     "price": 60.05,
     "photos": [
       {
