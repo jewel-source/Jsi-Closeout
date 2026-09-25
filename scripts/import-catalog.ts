@@ -100,7 +100,7 @@ function duplicateSignature(item: JewelryItem): string {
 }
 function isBetterListing(candidate: JewelryItem, current: JewelryItem): boolean {
   if (Boolean(current.soldOut) !== Boolean(candidate.soldOut)) {
-    return Boolean(current.soldOut);
+    return Boolean(candidate.soldOut);
   }
   return current.price === undefined && candidate.price !== undefined;
 }
@@ -318,18 +318,14 @@ async function main() {
         const existing = fileItems.get(baseId);
         if (existing) {
           sameFileMergedCount++;
-          if (!rowSold) {
-            if (existing.soldOut) {
-              existing.soldOut = false;
-              existing.quantityAvailable = rowQty;
-              existing.price = rowPrice ?? existing.price;
-            } else if (rowQty !== undefined) {
-              existing.quantityAvailable =
-                (existing.quantityAvailable ?? 0) + rowQty;
-            }
-          } else if (existing.price === undefined) {
-            existing.price = rowPrice;
+          if (rowSold) {
+            existing.soldOut = true;
+            existing.quantityAvailable = undefined;
+          } else if (!existing.soldOut && rowQty !== undefined) {
+            existing.quantityAvailable =
+              (existing.quantityAvailable ?? 0) + rowQty;
           }
+          existing.price ??= rowPrice;
           continue;
         }
         const { photos, fromCache } = await resolvePhotos(
@@ -374,6 +370,7 @@ async function main() {
           items[keptIndex] = {
             ...item,
             id: kept.id,
+            price: item.price ?? kept.price,
             photos: item.photos.length ? item.photos : kept.photos,
           };
         } else if (kept.photos.length === 0 && item.photos.length > 0) {
@@ -394,6 +391,19 @@ async function main() {
     }
     console.log(`  Parsed ${rowCount} item(s) from ${fileName}.`);
   }
+  // A style marked sold (Company + Memo/Invoice) in any file is sold, even if
+  // another list (e.g. one with no Company column) still shows it as stock.
+  const soldStyles = new Set(
+    items.filter((i) => i.soldOut).map((i) => i.styleNumber.toUpperCase()),
+  );
+  let flippedToSoldCount = 0;
+  for (const item of items) {
+    if (!item.soldOut && soldStyles.has(item.styleNumber.toUpperCase())) {
+      item.soldOut = true;
+      item.quantityAvailable = undefined;
+      flippedToSoldCount++;
+    }
+  }
   fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(items, null, 2));
   console.log(`Wrote ${items.length} items to ${OUTPUT_PATH}`);
@@ -406,7 +416,7 @@ async function main() {
   const soldCount = items.filter((i) => i.soldOut).length;
   const missingPrice = items.filter((i) => i.price === undefined).length;
   console.log(
-    `  ${items.length - soldCount} in stock, ${soldCount} sold out; ${missingPrice} item(s) have no price.`,
+    `  ${items.length - soldCount} in stock, ${soldCount} sold out (${flippedToSoldCount} moved to sold because the same style is sold in another file); ${missingPrice} item(s) have no price.`,
   );
   const photoCounts = { zero: 0, one: 0, many: 0 };
   for (const item of items) {
