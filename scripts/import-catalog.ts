@@ -108,10 +108,25 @@ function isBetterListing(candidate: JewelryItem, current: JewelryItem): boolean 
   }
   return current.price === undefined && candidate.price !== undefined;
 }
-/** Company cells like "BACK TO CARD" or "TRF TO 14K QTY 1-9 SHEET" mean the piece moved, not that it sold. */
+/**
+ * Company/comment text marks a sale, except when it only says the piece moved
+ * inside the business ("BACK TO CARD", "TRF TO 14K QTY 1-9 SHEET", "TRANSFER TO
+ * SRJ BAG"). A transfer to a customer or show (Macy's, Boscov's, trunk show,
+ * a shop) is still a sale.
+ */
 function companyMarksSale(company: string | undefined): boolean {
   if (!company) return false;
-  return !/\b(back to card|trf|transfer(red)?)\b/i.test(company);
+  if (/macy|bosco|trunk show|(^|[^a-z])shop([^a-z]|$)/i.test(company)) return true;
+  return !/(back to card|trf|transfer(red)?)/i.test(company);
+}
+/** Unnamed note columns sometimes say "SHIPPED ALL QTY TO JTV" or "SHIP TO GERMANY". */
+function rowSaysShipped(row: Record<string, unknown>): boolean {
+  return Object.entries(row).some(
+    ([header, value]) =>
+      header.startsWith("__EMPTY") &&
+      typeof value === "string" &&
+      /(^|[^a-z])ship(ped)?([^a-z]|$)/i.test(value),
+  );
 }
 function looksLikeNoteRow(styleNumber: string): boolean {
   return /[A-Za-z]{3,}\s+[A-Za-z]{3,}/.test(styleNumber);
@@ -330,6 +345,7 @@ async function main() {
           fileIsSoldList ||
           companyMarksSale(get("company")) ||
           (commentMarksSold && companyMarksSale(get("comment"))) ||
+          rowSaysShipped(row) ||
           Boolean(memoMarksSold && get("memoInvoice")) ||
           rowQty === 0;
         const existing = fileItems.get(baseId);

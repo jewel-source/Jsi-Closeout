@@ -72,8 +72,11 @@ items) so you can see the layout before hooking up real data.
    is filled, the quantity is 0, or the whole file has "sold" in its name.
    (Files with "srj" in the name are the exception: their INV/MEMO column is
    ignored for this, and their `COMMENT` column is used like Company — any
-   comment such as "ASC" or "CB DIAMONDS" marks the row sold. A Company of "BACK TO CARD", "TRF TO ..." or "TRANSFER TO
-   ..." means the piece moved, so it doesn't count as sold.)
+   comment such as "ASC" or "CB DIAMONDS" marks the row sold. A Company/comment of "BACK TO CARD", "TRF TO ..." or "TRANSFER TO
+   ..." means the piece moved inside the business, so it doesn't count as
+   sold, unless it was transferred to a customer or show (Macy's, Boscov's,
+   trunk show, a shop), which is a sale. A note like "SHIPPED ..." or "SHIP TO
+   ..." in an unnamed notes column also marks the row sold.)
    Rows whose Style cell is a note rather than a style number (e.g. "JB01029BT8
    - DUPLICATE ONLY FOR RECORDS", "ALL SHIPPED") are skipped. Sold pieces stay in
    the catalog because they can be reordered, but they live on a separate
