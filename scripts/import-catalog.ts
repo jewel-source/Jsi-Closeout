@@ -77,6 +77,9 @@ const COLUMN_ALIASES: Record<string, string[]> = {
     "memo/invioce",
     "memo/inv",
     "inv/memo",
+    "inv /memo",
+    "memo /inv",
+    "memo / inv",
     "memo",
     "invoice",
   ],
@@ -103,6 +106,11 @@ function isBetterListing(candidate: JewelryItem, current: JewelryItem): boolean 
     return Boolean(candidate.soldOut);
   }
   return current.price === undefined && candidate.price !== undefined;
+}
+/** Company cells like "BACK TO CARD" or "TRF TO 14K QTY 1-9 SHEET" mean the piece moved, not that it sold. */
+function companyMarksSale(company: string | undefined): boolean {
+  if (!company) return false;
+  return !/\b(back to card|trf|transfer(red)?)\b/i.test(company);
 }
 function looksLikeNoteRow(styleNumber: string): boolean {
   return /[A-Za-z]{3,}\s+[A-Za-z]{3,}/.test(styleNumber);
@@ -234,6 +242,9 @@ async function main() {
   for (const filePath of excelFiles) {
     const fileName = path.basename(filePath);
     const fileIsSoldList = /sold/i.test(fileName);
+    // The srj samples lists use INV/MEMO for something other than sales, so a
+    // memo alone doesn't make a row sold there.
+    const memoMarksSold = !/srj/i.test(fileName);
     console.log(`Downloading ${filePath}...`);
     const buffer = await downloadFile(config, filePath);
     const sheets = sheetsFromWorkbook(buffer);
@@ -313,7 +324,8 @@ async function main() {
         const rowPrice = get("price") ? Number(get("price")) : undefined;
         const rowSold =
           fileIsSoldList ||
-          Boolean(get("company") && get("memoInvoice")) ||
+          companyMarksSale(get("company")) ||
+          Boolean(memoMarksSold && get("memoInvoice")) ||
           rowQty === 0;
         const existing = fileItems.get(baseId);
         if (existing) {
@@ -391,8 +403,8 @@ async function main() {
     }
     console.log(`  Parsed ${rowCount} item(s) from ${fileName}.`);
   }
-  // A style marked sold (Company + Memo/Invoice) in any file is sold, even if
-  // another list (e.g. one with no Company column) still shows it as stock.
+  // A style marked sold (Company or Memo/Invoice filled) in any file is sold,
+  // even if another list still shows it as stock.
   const soldStyles = new Set(
     items.filter((i) => i.soldOut).map((i) => i.styleNumber.toUpperCase()),
   );

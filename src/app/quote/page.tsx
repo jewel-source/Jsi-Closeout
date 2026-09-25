@@ -1,5 +1,6 @@
 import QuoteCartList from "@/components/QuoteCartList";
 import QuoteForm from "@/components/QuoteForm";
+import PicSheetButton from "@/components/PicSheetButton";
 
 export default function QuotePage() {
   return (
@@ -17,6 +18,7 @@ export default function QuotePage() {
           Selected Items
         </h2>
         <QuoteCartList />
+        <PicSheetButton />
       </div>
 
       <div className="mt-10">

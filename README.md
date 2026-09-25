@@ -64,17 +64,20 @@ items) so you can see the layout before hooking up real data.
    quantity summed across in-stock rows),
    and the same style appearing in different source files with
    identical details (description, metal, size, category, stone, weights) is
-   de-duplicated to a single listing — the in-stock one wins over a sold one,
+   de-duplicated to a single listing — the sold one wins over an in-stock one,
    then the one that has a price. A style whose details genuinely differ
    between files is kept as separate listings with a disambiguated id
    (`style`, `style-2`, ...). The end of the import logs how many of each it did.
-   **Sold vs. in stock:** a row is sold when both `Company` and `Memo/Invoice`
-   are filled, the quantity is 0, or the whole file has "sold" in its name.
+   **Sold vs. in stock:** a row is sold when either `Company` or `Memo/Invoice`
+   is filled, the quantity is 0, or the whole file has "sold" in its name.
+   (Files with "srj" in the name are the exception: their INV/MEMO column is
+   ignored for this. A Company of "BACK TO CARD", "TRF TO ..." or "TRANSFER TO
+   ..." means the piece moved, so it doesn't count as sold.)
    Rows whose Style cell is a note rather than a style number (e.g. "JB01029BT8
    - DUPLICATE ONLY FOR RECORDS", "ALL SHIPPED") are skipped. Sold pieces stay in
    the catalog because they can be reordered, but they live on a separate
    **Sold Out** tab and show only a price. **In Stock** pieces show price and
-   quantity. A style with any in-stock row counts as in stock.
+   quantity. A style with any sold row, in any file, counts as sold.
 3. **Sheets like `SILVER GEMSTONE.xlsx` don't have a customer-facing name or
    description column** — just an internal `Desc` field like
    `SS 25.50GTW AQ BRACELET 7.5"`. `scripts/lib/parse.ts` parses jewelry type,

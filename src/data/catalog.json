@@ -4728,8 +4728,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 64,
+    "soldOut": true,
     "price": 279,
     "photos": [
       {
@@ -5381,9 +5380,8 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "7",
-    "soldOut": false,
-    "quantityAvailable": 22,
-    "price": 3948,
+    "soldOut": true,
+    "price": 4277,
     "photos": [
       {
         "url": "/api/immich-image/dd12ca6f-c789-4f3e-b061-4661f96aa1db/preview",
@@ -8392,9 +8390,8 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": false,
-    "quantityAvailable": 6,
-    "price": 908,
+    "soldOut": true,
+    "price": 984,
     "photos": [
       {
         "url": "/api/immich-image/370b4ff7-76a1-42cc-8c5d-9573639a4a7c/preview",
@@ -9682,8 +9679,7 @@
     "stone": "Diamond",
     "size": "6.75\"",
     "ctw": "3",
-    "soldOut": false,
-    "quantityAvailable": 4,
+    "soldOut": true,
     "price": 1267,
     "photos": [
       {
@@ -13183,9 +13179,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.03",
-    "soldOut": false,
-    "quantityAvailable": 4,
-    "price": 37,
+    "soldOut": true,
+    "price": 40,
     "photos": [
       {
         "url": "/api/immich-image/e58281d4-5706-4edd-aa46-dbca35f7c9bb/preview",
@@ -13361,9 +13356,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.15",
-    "soldOut": false,
-    "quantityAvailable": 73,
-    "price": 93,
+    "soldOut": true,
+    "price": 100,
     "photos": [
       {
         "url": "/api/immich-image/ff37e165-0552-4779-bc16-b27224cea4cf/preview",
@@ -13431,9 +13425,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.15",
-    "soldOut": false,
-    "quantityAvailable": 41,
-    "price": 98,
+    "soldOut": true,
+    "price": 106,
     "photos": [
       {
         "url": "/api/immich-image/d6b097d8-4dba-4bbc-89f5-4e1dc7dcb93b/preview",
@@ -13725,9 +13718,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.2",
-    "soldOut": false,
-    "quantityAvailable": 70,
-    "price": 122,
+    "soldOut": true,
+    "price": 132,
     "photos": [
       {
         "url": "/api/immich-image/fb51c03a-63af-40e1-8983-d9edc7d59058/preview",
@@ -14272,9 +14264,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1.15",
-    "soldOut": false,
-    "quantityAvailable": 117,
-    "price": 144,
+    "soldOut": true,
+    "price": 156,
     "photos": [
       {
         "url": "/api/immich-image/e08da73f-1ae7-48b7-afa4-5ec212e49d15/preview",
@@ -14922,9 +14913,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 112,
-    "price": 76,
+    "soldOut": true,
+    "price": 82,
     "photos": [
       {
         "url": "/api/immich-image/1c936031-73c4-46b1-a9c3-a0224f163fff/preview",
@@ -14961,9 +14951,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 40,
-    "price": 80,
+    "soldOut": true,
+    "price": 86,
     "photos": [
       {
         "url": "/api/immich-image/8e016002-5b7c-4aec-afe6-75819527c5a5/preview",
@@ -15227,9 +15216,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.12",
-    "soldOut": false,
-    "quantityAvailable": 63,
-    "price": 80,
+    "soldOut": true,
+    "price": 87,
     "photos": [
       {
         "url": "/api/immich-image/b3757b4e-9056-4963-b183-beea7eb7484f/preview",
@@ -15344,9 +15332,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.2",
-    "soldOut": false,
-    "quantityAvailable": 61,
-    "price": 120,
+    "soldOut": true,
+    "price": 130,
     "photos": [
       {
         "url": "/api/immich-image/fbdc4632-2905-4e9d-ad7d-9469a3cf6f5e/preview",
@@ -16026,9 +16013,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.2",
-    "soldOut": false,
-    "quantityAvailable": 22,
-    "price": 125,
+    "soldOut": true,
+    "price": 136,
     "photos": [
       {
         "url": "/api/immich-image/a7cb7f87-99e4-438b-9be2-e7835528ec26/preview",
@@ -16637,9 +16623,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 30,
-    "price": 102,
+    "soldOut": true,
+    "price": 110,
     "photos": [
       {
         "url": "/api/immich-image/9866d3fc-cd5d-4ad6-b4c4-47c0fb956d45/preview",
@@ -16792,9 +16777,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 66,
-    "price": 108,
+    "soldOut": true,
+    "price": 117,
     "photos": [
       {
         "url": "/api/immich-image/2c4dc592-4b81-4a81-a979-dc9c8cf63014/preview",
@@ -16857,9 +16841,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 50,
-    "price": 108,
+    "soldOut": true,
+    "price": 117,
     "photos": [
       {
         "url": "/api/immich-image/dca0c47f-62b6-43d8-acf3-f67cbf7c1fe5/preview",
@@ -17714,9 +17697,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.2",
-    "soldOut": false,
-    "quantityAvailable": 64,
-    "price": 97,
+    "soldOut": true,
+    "price": 105,
     "photos": [
       {
         "url": "/api/immich-image/71805482-e4ba-460c-9f2f-b3d68e2278f3/preview",
@@ -18044,8 +18026,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.05",
-    "soldOut": false,
-    "quantityAvailable": 148,
+    "soldOut": true,
     "price": 51,
     "photos": [
       {
@@ -18135,8 +18116,7 @@
     "description": "SILVER Pendants.",
     "category": "Pendants",
     "metal": "Silver",
-    "soldOut": false,
-    "quantityAvailable": 169,
+    "soldOut": true,
     "price": 7,
     "photos": [
       {
@@ -18411,9 +18391,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 94,
-    "price": 52,
+    "soldOut": true,
+    "price": 56,
     "photos": [
       {
         "url": "/api/immich-image/8fd3c35f-b483-4ce3-83bd-d3a4659097f2/preview",
@@ -19493,9 +19472,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.25",
-    "soldOut": false,
-    "quantityAvailable": 121,
-    "price": 101,
+    "soldOut": true,
+    "price": 109,
     "photos": [
       {
         "url": "/api/immich-image/fc0d2b84-2773-4c2a-9af8-5700ecafb7c5/preview",
@@ -19925,8 +19903,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.12",
-    "soldOut": false,
-    "quantityAvailable": 20,
+    "soldOut": true,
     "price": 104,
     "photos": [
       {
@@ -20426,8 +20403,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 29,
+    "soldOut": true,
     "price": 162,
     "photos": [
       {
@@ -21917,9 +21893,8 @@
     "stone": "Morganite",
     "ctw": "0",
     "gtw": "2.16",
-    "soldOut": false,
-    "quantityAvailable": 20,
-    "price": 49,
+    "soldOut": true,
+    "price": 53,
     "photos": [
       {
         "url": "/api/immich-image/5b7edc1c-db51-4ff9-870a-a05a186757a7/preview",
@@ -22117,9 +22092,8 @@
     "stone": "Aquamarine",
     "ctw": "0",
     "gtw": "3.5",
-    "soldOut": false,
-    "quantityAvailable": 377,
-    "price": 50,
+    "soldOut": true,
+    "price": 53,
     "photos": [
       {
         "url": "/api/immich-image/488f91ff-028a-4b0d-b666-e22a7ddb7134/preview",
@@ -25495,9 +25469,8 @@
     "stone": "Tanzanite",
     "ctw": "0",
     "gtw": "3.5",
-    "soldOut": false,
-    "quantityAvailable": 78,
-    "price": 90,
+    "soldOut": true,
+    "price": 97,
     "photos": [
       {
         "url": "/api/immich-image/ca0bd16c-4dbd-4ce6-9a2f-2b4cb600ced9/preview",
@@ -27706,9 +27679,8 @@
     "stone": "Tanzanite",
     "ctw": "0",
     "gtw": "0.93",
-    "soldOut": false,
-    "quantityAvailable": 31,
-    "price": 47,
+    "soldOut": true,
+    "price": 50,
     "photos": [
       {
         "url": "/api/immich-image/ad93bd2b-a8b0-4d70-be69-89123bc51b42/preview",
@@ -28408,9 +28380,8 @@
     "size": "7.25\"",
     "ctw": "0",
     "gtw": "12.5",
-    "soldOut": false,
-    "quantityAvailable": 49,
-    "price": 123,
+    "soldOut": true,
+    "price": 273,
     "photos": [
       {
         "url": "/api/immich-image/fddf26ba-c5ea-4fca-88cd-0d98997bd324/preview",
@@ -29810,8 +29781,7 @@
     "stone": "Ruby",
     "ctw": "0",
     "gtw": "2",
-    "soldOut": false,
-    "quantityAvailable": 47,
+    "soldOut": true,
     "price": 98,
     "photos": [
       {
@@ -30041,8 +30011,7 @@
     "stone": "Emerald",
     "ctw": "0",
     "gtw": "1.5",
-    "soldOut": false,
-    "quantityAvailable": 20,
+    "soldOut": true,
     "price": 81,
     "photos": []
   },
@@ -30056,8 +30025,7 @@
     "stone": "Blue Sapphire",
     "ctw": "0",
     "gtw": "1.75",
-    "soldOut": false,
-    "quantityAvailable": 30,
+    "soldOut": true,
     "price": 83,
     "photos": []
   },
@@ -30912,8 +30880,7 @@
     "stone": "Aquamarine",
     "ctw": "0",
     "gtw": "1.5",
-    "soldOut": false,
-    "quantityAvailable": 22,
+    "soldOut": true,
     "price": 64,
     "photos": [
       {
@@ -32721,8 +32688,7 @@
     "stone": "Diamond",
     "ctw": "0.06",
     "gtw": "1.6",
-    "soldOut": false,
-    "quantityAvailable": 46,
+    "soldOut": true,
     "price": 80,
     "photos": [
       {
@@ -33444,9 +33410,8 @@
     "stone": "Amethyst",
     "ctw": "0",
     "gtw": "2.72",
-    "soldOut": false,
-    "quantityAvailable": 52,
-    "price": 90,
+    "soldOut": true,
+    "price": 64,
     "photos": [
       {
         "url": "/api/immich-image/250f4589-7619-4795-873c-072aad256c23/preview",
@@ -33522,8 +33487,7 @@
     "category": "Earrings",
     "metal": "Silver",
     "stone": "Opal",
-    "soldOut": false,
-    "quantityAvailable": 72,
+    "soldOut": true,
     "price": 72,
     "photos": []
   },
@@ -33731,9 +33695,8 @@
     "stone": "Swiss Blue Topaz",
     "ctw": "0",
     "gtw": "4.48",
-    "soldOut": false,
-    "quantityAvailable": 67,
-    "price": 71,
+    "soldOut": true,
+    "price": 84,
     "photos": [
       {
         "url": "/api/immich-image/571aee22-375e-402c-9624-6157011e79ee/preview",
@@ -36501,8 +36464,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1.5",
-    "soldOut": false,
-    "quantityAvailable": 55,
+    "soldOut": true,
     "price": 212,
     "photos": [
       {
@@ -37016,8 +36978,9 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": true,
-    "price": 102,
+    "soldOut": false,
+    "quantityAvailable": 48,
+    "price": 96,
     "photos": []
   },
   {
@@ -37029,8 +36992,9 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": true,
-    "price": 106,
+    "soldOut": false,
+    "quantityAvailable": 25,
+    "price": 105,
     "photos": []
   },
   {
@@ -39301,8 +39265,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "5",
-    "soldOut": false,
-    "quantityAvailable": 78,
+    "soldOut": true,
     "price": 556,
     "photos": [
       {
@@ -39328,9 +39291,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "5",
-    "soldOut": false,
-    "quantityAvailable": 73,
-    "price": 564,
+    "soldOut": true,
+    "price": 690,
     "photos": [
       {
         "url": "/api/immich-image/301ed1ad-555d-4f20-a613-298896757a32/preview",
@@ -42162,8 +42124,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 582,
     "photos": [
       {
@@ -43512,8 +43473,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 25,
+    "soldOut": true,
     "price": 302,
     "photos": [
       {
@@ -43911,8 +43871,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 799,
     "photos": [
       {
@@ -45311,8 +45270,7 @@
     "stone": "Diamond",
     "size": "6.75\"",
     "ctw": "3",
-    "soldOut": false,
-    "quantityAvailable": 7,
+    "soldOut": true,
     "price": 1372,
     "photos": [
       {
@@ -45350,8 +45308,7 @@
     "stone": "Diamond",
     "size": "8.00\"",
     "ctw": "3",
-    "soldOut": false,
-    "quantityAvailable": 3,
+    "soldOut": true,
     "price": 1436,
     "photos": [
       {
@@ -45581,8 +45538,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 22,
+    "soldOut": true,
     "price": 628,
     "photos": []
   },
@@ -47621,8 +47577,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "0.63",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 793,
     "photos": [
       {
@@ -49529,8 +49484,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": false,
-    "quantityAvailable": 87,
+    "soldOut": true,
     "price": 500,
     "photos": []
   },
@@ -49543,8 +49497,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": false,
-    "quantityAvailable": 83,
+    "soldOut": true,
     "price": 516,
     "photos": []
   },
@@ -49557,8 +49510,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": false,
-    "quantityAvailable": 83,
+    "soldOut": true,
     "price": 504,
     "photos": []
   },
@@ -49571,8 +49523,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": false,
-    "quantityAvailable": 89,
+    "soldOut": true,
     "price": 509,
     "photos": []
   },
@@ -59674,8 +59625,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "0.75",
-    "soldOut": false,
-    "quantityAvailable": 15,
+    "soldOut": true,
     "price": 453,
     "photos": [
       {
@@ -62026,8 +61976,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "2",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 3899,
     "photos": [
       {
@@ -63737,8 +63686,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "3",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 842,
     "photos": [
       {
@@ -66303,8 +66251,7 @@
     "metal": "Gold",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 552,
     "photos": [
       {
@@ -67143,8 +67090,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 5,
+    "soldOut": true,
     "price": 56,
     "photos": [
       {
@@ -67235,8 +67181,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 52,
     "photos": [
       {
@@ -67254,8 +67199,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 70,
     "photos": [
       {
@@ -67315,8 +67259,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 27,
     "photos": [
       {
@@ -67354,8 +67297,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 94,
     "photos": [
       {
@@ -67381,8 +67323,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 91,
     "photos": [
       {
@@ -67416,8 +67357,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 92,
     "photos": [
       {
@@ -67477,8 +67417,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 92,
     "photos": [
       {
@@ -67553,8 +67492,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.15",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 80,
     "photos": [
       {
@@ -67572,8 +67510,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.15",
-    "soldOut": false,
-    "quantityAvailable": 5,
+    "soldOut": true,
     "price": 70,
     "photos": [
       {
@@ -67791,8 +67728,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.25",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 141,
     "photos": [
       {
@@ -67830,8 +67766,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.25",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 103,
     "photos": [
       {
@@ -67951,8 +67886,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.35",
-    "soldOut": false,
-    "quantityAvailable": 3,
+    "soldOut": true,
     "price": 149,
     "photos": [
       {
@@ -68021,8 +67955,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 141,
     "photos": []
   },
@@ -68035,8 +67968,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 126,
     "photos": []
   },
@@ -68093,8 +68025,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 125,
     "photos": []
   },
@@ -68129,8 +68060,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.75",
-    "soldOut": false,
-    "quantityAvailable": 8,
+    "soldOut": true,
     "price": 196,
     "photos": [
       {
@@ -68311,8 +68241,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.06",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 59,
     "photos": [
       {
@@ -68330,8 +68259,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 4,
+    "soldOut": true,
     "price": 66,
     "photos": [
       {
@@ -68349,8 +68277,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 80,
     "photos": [
       {
@@ -68420,8 +68347,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 65,
     "photos": [
       {
@@ -68439,8 +68365,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 67,
     "photos": [
       {
@@ -68514,8 +68439,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.15",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 83,
     "photos": [
       {
@@ -68571,8 +68495,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.2",
-    "soldOut": false,
-    "quantityAvailable": 5,
+    "soldOut": true,
     "price": 90,
     "photos": [
       {
@@ -68590,8 +68513,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.33",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 178,
     "photos": [
       {
@@ -68629,8 +68551,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.33",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 178,
     "photos": [
       {
@@ -68734,8 +68655,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.05",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 49,
     "photos": [
       {
@@ -68753,8 +68673,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.05",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 41,
     "photos": [
       {
@@ -69025,8 +68944,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.05",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 39,
     "photos": [
       {
@@ -69106,8 +69024,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.08",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 49,
     "photos": []
   },
@@ -69138,8 +69055,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 5,
+    "soldOut": true,
     "price": 71,
     "photos": [
       {
@@ -69213,8 +69129,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 26,
     "photos": [
       {
@@ -69232,8 +69147,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 27,
     "photos": [
       {
@@ -69492,8 +69406,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.25",
-    "soldOut": false,
-    "quantityAvailable": 7,
+    "soldOut": true,
     "price": 137,
     "photos": [
       {
@@ -69602,8 +69515,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 3,
+    "soldOut": true,
     "price": 150,
     "photos": [
       {
@@ -69673,8 +69585,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": false,
-    "quantityAvailable": 3,
+    "soldOut": true,
     "price": 248,
     "photos": [
       {
@@ -69692,8 +69603,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": false,
-    "quantityAvailable": 3,
+    "soldOut": true,
     "price": 248,
     "photos": [
       {
@@ -69723,8 +69633,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": false,
-    "quantityAvailable": 3,
+    "soldOut": true,
     "price": 260,
     "photos": []
   },
@@ -69831,8 +69740,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "2",
-    "soldOut": false,
-    "quantityAvailable": 7,
+    "soldOut": true,
     "price": 255,
     "photos": [
       {
@@ -69902,8 +69810,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.08",
-    "soldOut": false,
-    "quantityAvailable": 3,
+    "soldOut": true,
     "price": 39,
     "photos": [
       {
@@ -69925,8 +69832,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.08",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 41,
     "photos": []
   },
@@ -69939,8 +69845,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.16",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 42,
     "photos": [
       {
@@ -70000,8 +69905,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.08",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 60,
     "photos": [
       {
@@ -70065,8 +69969,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 54,
     "photos": [
       {
@@ -70084,8 +69987,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 6,
+    "soldOut": true,
     "price": 84,
     "photos": [
       {
@@ -70119,8 +70021,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 75,
     "photos": [
       {
@@ -70244,8 +70145,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 6,
+    "soldOut": true,
     "price": 61,
     "photos": [
       {
@@ -70297,8 +70197,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 90,
     "photos": [
       {
@@ -70491,8 +70390,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.12",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 87,
     "photos": [
       {
@@ -70532,8 +70430,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.12",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 88,
     "photos": [
       {
@@ -70551,8 +70448,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.12",
-    "soldOut": false,
-    "quantityAvailable": 10,
+    "soldOut": true,
     "price": 80,
     "photos": [
       {
@@ -70590,8 +70486,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.15",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 98,
     "photos": [
       {
@@ -70627,8 +70522,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.15",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 59,
     "photos": [
       {
@@ -70799,8 +70693,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.15",
-    "soldOut": false,
-    "quantityAvailable": 3,
+    "soldOut": true,
     "price": 136,
     "photos": [
       {
@@ -71064,8 +70957,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.25",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 80,
     "photos": [
       {
@@ -71101,8 +70993,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.25",
-    "soldOut": false,
-    "quantityAvailable": 4,
+    "soldOut": true,
     "price": 96,
     "photos": []
   },
@@ -71190,8 +71081,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.25",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 90,
     "photos": [
       {
@@ -71235,8 +71125,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.25",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 128,
     "photos": [
       {
@@ -71306,8 +71195,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.3",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 136,
     "photos": [
       {
@@ -71626,8 +71514,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 3,
+    "soldOut": true,
     "price": 115,
     "photos": [
       {
@@ -71729,8 +71616,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 3,
+    "soldOut": true,
     "price": 170,
     "photos": [
       {
@@ -71756,8 +71642,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 230,
     "photos": [
       {
@@ -71775,8 +71660,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 173,
     "photos": []
   },
@@ -71954,8 +71838,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.75",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 232,
     "photos": [
       {
@@ -71973,8 +71856,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.75",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 208,
     "photos": [
       {
@@ -72180,8 +72062,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 128,
     "photos": [
       {
@@ -72485,8 +72366,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1.25",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 134,
     "photos": [
       {
@@ -72660,8 +72540,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.05",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 85,
     "photos": [
       {
@@ -72679,8 +72558,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.16",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 93,
     "photos": [
       {
@@ -72858,8 +72736,7 @@
     "category": "Rings",
     "metal": "Silver",
     "stone": "Diamond",
-    "soldOut": false,
-    "quantityAvailable": 5,
+    "soldOut": true,
     "price": 36,
     "photos": [
       {
@@ -72931,8 +72808,7 @@
     "category": "Pendants",
     "metal": "Silver",
     "stone": "Diamond",
-    "soldOut": false,
-    "quantityAvailable": 11,
+    "soldOut": true,
     "price": 8,
     "photos": [
       {
@@ -72969,8 +72845,7 @@
     "stone": "Diamond",
     "size": "9\"",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 51,
     "photos": [
       {
@@ -73212,8 +73087,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.2",
-    "soldOut": false,
-    "quantityAvailable": 3,
+    "soldOut": true,
     "price": 142,
     "photos": [
       {
@@ -73235,8 +73109,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.2",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 127,
     "photos": [
       {
@@ -73334,8 +73207,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.25",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 119,
     "photos": [
       {
@@ -73353,8 +73225,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.25",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 176,
     "photos": [
       {
@@ -73799,8 +73670,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.07",
-    "soldOut": false,
-    "quantityAvailable": 4,
+    "soldOut": true,
     "price": 116,
     "photos": [
       {
@@ -73852,8 +73722,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 4,
+    "soldOut": true,
     "price": 121,
     "photos": [
       {
@@ -73884,8 +73753,7 @@
     "stone": "Diamond",
     "size": "20\"",
     "ctw": "0.25",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 206,
     "photos": [
       {
@@ -73903,8 +73771,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.4",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 140,
     "photos": []
   },
@@ -74029,8 +73896,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.01",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 33,
     "photos": [
       {
@@ -74048,8 +73914,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 48,
     "photos": [
       {
@@ -74107,8 +73972,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.18",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 118,
     "photos": [
       {
@@ -74170,8 +74034,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.33",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 137,
     "photos": [
       {
@@ -74299,8 +74162,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.05",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 56,
     "photos": [
       {
@@ -74590,8 +74452,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.35",
-    "soldOut": false,
-    "quantityAvailable": 3,
+    "soldOut": true,
     "price": 122,
     "photos": [
       {
@@ -74627,8 +74488,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 4,
+    "soldOut": true,
     "price": 204,
     "photos": [
       {
@@ -75012,8 +74872,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.75",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 134,
     "photos": []
   },
@@ -75026,8 +74885,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": false,
-    "quantityAvailable": 3,
+    "soldOut": true,
     "price": 187,
     "photos": [
       {
@@ -76002,8 +75860,7 @@
     "stone": "Spinel",
     "ctw": "0",
     "gtw": "5.2",
-    "soldOut": false,
-    "quantityAvailable": 4,
+    "soldOut": true,
     "price": 36,
     "photos": []
   },
@@ -76017,8 +75874,7 @@
     "stone": "Blue Sapphire",
     "ctw": "0",
     "gtw": "13.17",
-    "soldOut": false,
-    "quantityAvailable": 3,
+    "soldOut": true,
     "price": 68,
     "photos": [
       {
@@ -76036,8 +75892,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 42,
     "photos": [
       {
@@ -77013,8 +76868,7 @@
     "stone": "Morganite",
     "ctw": "0",
     "gtw": "1.3",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 47,
     "photos": [
       {
@@ -77052,8 +76906,7 @@
     "stone": "Tanzanite",
     "ctw": "0",
     "gtw": "2.36",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 74,
     "photos": [
       {
@@ -77091,8 +76944,7 @@
     "stone": "Rhodolite",
     "ctw": "0",
     "gtw": "2.1",
-    "soldOut": false,
-    "quantityAvailable": 4,
+    "soldOut": true,
     "price": 33,
     "photos": [
       {
@@ -78094,8 +77946,7 @@
     "stone": "Amethyst",
     "ctw": "0",
     "gtw": "6.2",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 93,
     "photos": []
   },
@@ -78128,8 +77979,7 @@
     "stone": "Tanzanite",
     "ctw": "0",
     "gtw": "0.42",
-    "soldOut": false,
-    "quantityAvailable": 4,
+    "soldOut": true,
     "price": 30,
     "photos": [
       {
@@ -78156,8 +78006,7 @@
     "stone": "Aquamarine",
     "ctw": "0",
     "gtw": "1.91",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 50,
     "photos": [
       {
@@ -78243,8 +78092,7 @@
     "stone": "Diamond",
     "ctw": "0.05",
     "gtw": "0.6",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 42,
     "photos": [
       {
@@ -78347,8 +78195,7 @@
     "stone": "Diamond",
     "ctw": "0.03",
     "gtw": "0.36",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 31,
     "photos": [
       {
@@ -78367,8 +78214,7 @@
     "stone": "Diamond",
     "ctw": "0.03",
     "gtw": "0.43",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 31,
     "photos": [
       {
@@ -78516,8 +78362,7 @@
     "stone": "Diamond",
     "ctw": "0.1",
     "gtw": "0.7",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 80,
     "photos": [
       {
@@ -78582,8 +78427,7 @@
     "stone": "Diamond",
     "ctw": "0.13",
     "gtw": "2.75",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 74,
     "photos": [
       {
@@ -78807,8 +78651,7 @@
     "stone": "Emerald",
     "ctw": "0",
     "gtw": "6.4",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 42,
     "photos": [
       {
@@ -78846,8 +78689,7 @@
     "stone": "Morganite",
     "ctw": "0",
     "gtw": "1.07",
-    "soldOut": false,
-    "quantityAvailable": 8,
+    "soldOut": true,
     "price": 37,
     "photos": [
       {
@@ -78866,8 +78708,7 @@
     "stone": "Multi-Gemstone",
     "ctw": "0",
     "gtw": "2.36",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 60,
     "photos": []
   },
@@ -78932,8 +78773,7 @@
     "stone": "Morganite",
     "ctw": "0",
     "gtw": "6.79",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 68,
     "photos": [
       {
@@ -79186,8 +79026,7 @@
     "stone": "Morganite",
     "ctw": "0",
     "gtw": "0.7",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 48,
     "photos": []
   },
@@ -79700,8 +79539,7 @@
     "category": "Rings",
     "metal": "Silver",
     "stone": "Tanzanite",
-    "soldOut": false,
-    "quantityAvailable": 5,
+    "soldOut": true,
     "price": 65,
     "photos": [
       {
@@ -79897,8 +79735,7 @@
     "stone": "Tanzanite",
     "ctw": "0",
     "gtw": "23.14",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 26,
     "photos": [
       {
@@ -79957,8 +79794,7 @@
     "stone": "Blue Sapphire",
     "ctw": "0.05",
     "gtw": "2",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 42,
     "photos": [
       {
@@ -80034,8 +79870,7 @@
     "stone": "Onyx",
     "ctw": "0",
     "gtw": "14.5",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 37,
     "photos": [
       {
@@ -80052,8 +79887,7 @@
     "category": "Earrings",
     "metal": "Silver",
     "stone": "Opal",
-    "soldOut": false,
-    "quantityAvailable": 4,
+    "soldOut": true,
     "price": 52,
     "photos": [
       {
@@ -82870,8 +82704,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.2",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 95,
     "photos": []
   },
@@ -83328,8 +83161,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 106,
     "photos": [
       {
@@ -83347,8 +83179,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.75",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 166,
     "photos": [
       {
@@ -83730,8 +83561,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "5",
-    "soldOut": false,
-    "quantityAvailable": 3,
+    "soldOut": true,
     "price": 690,
     "photos": [
       {
@@ -84011,8 +83841,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 39,
     "photos": [
       {
@@ -84118,8 +83947,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 52,
     "photos": [
       {
@@ -84149,8 +83977,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.1",
-    "soldOut": false,
-    "quantityAvailable": 3,
+    "soldOut": true,
     "price": 58,
     "photos": [
       {
@@ -84701,8 +84528,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 106,
     "photos": [
       {
@@ -85395,8 +85221,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "0.5",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 76,
     "photos": [
       {
@@ -85962,8 +85787,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 243,
     "photos": []
   },
@@ -86014,8 +85838,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 227,
     "photos": []
   },
@@ -86028,8 +85851,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 251,
     "photos": [
       {
@@ -86060,8 +85882,7 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": false,
-    "quantityAvailable": 2,
+    "soldOut": true,
     "price": 212,
     "photos": [
       {
@@ -86412,8 +86233,7 @@
     "stone": "Diamond",
     "size": "8\"",
     "ctw": "3.75",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 1084,
     "photos": [
       {
@@ -86444,8 +86264,7 @@
     "stone": "Diamond",
     "size": "8\"",
     "ctw": "5.5",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 1083,
     "photos": [
       {
@@ -86907,8 +86726,7 @@
     "stone": "Pearl",
     "ctw": "0.23",
     "gtw": "5",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 97,
     "photos": [
       {
@@ -86927,8 +86745,7 @@
     "stone": "Diamond",
     "ctw": "0.12",
     "gtw": "1.08",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 101,
     "photos": [
       {
@@ -87129,8 +86946,7 @@
     "stone": "Pearl",
     "ctw": "0.2",
     "gtw": "6",
-    "soldOut": false,
-    "quantityAvailable": 19,
+    "soldOut": true,
     "price": 94,
     "photos": [
       {
@@ -87168,8 +86984,7 @@
     "stone": "Pearl",
     "ctw": "0.2",
     "gtw": "6",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 96,
     "photos": [
       {
@@ -87188,8 +87003,7 @@
     "stone": "Amethyst",
     "ctw": "0",
     "gtw": "0.75",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 66,
     "photos": [
       {
@@ -87327,8 +87141,7 @@
     "stone": "Zultanite, Diamond",
     "ctw": "0.1",
     "gtw": "0.8",
-    "soldOut": false,
-    "quantityAvailable": 1,
+    "soldOut": true,
     "price": 59,
     "photos": [
       {
