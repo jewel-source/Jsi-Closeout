@@ -67,6 +67,7 @@ const COLUMN_ALIASES: Record<string, string[]> = {
   collection: ["collection", "group", "lot"],
   closeoutYear: ["year", "closeout year"],
   company: ["company"],
+  comment: ["comment"],
   memoInvoice: [
     "memo/invoice",
     "memo / invoice",
@@ -245,6 +246,9 @@ async function main() {
     // The srj samples lists use INV/MEMO for something other than sales, so a
     // memo alone doesn't make a row sold there.
     const memoMarksSold = !/srj/i.test(fileName);
+    // ...but their COMMENT column names who took the piece (e.g. "ASC"), so a
+    // filled comment marks a row sold there, like the Company column elsewhere.
+    const commentMarksSold = /srj/i.test(fileName);
     console.log(`Downloading ${filePath}...`);
     const buffer = await downloadFile(config, filePath);
     const sheets = sheetsFromWorkbook(buffer);
@@ -325,6 +329,7 @@ async function main() {
         const rowSold =
           fileIsSoldList ||
           companyMarksSale(get("company")) ||
+          (commentMarksSold && companyMarksSale(get("comment"))) ||
           Boolean(memoMarksSold && get("memoInvoice")) ||
           rowQty === 0;
         const existing = fileItems.get(baseId);

@@ -71,7 +71,8 @@ items) so you can see the layout before hooking up real data.
    **Sold vs. in stock:** a row is sold when either `Company` or `Memo/Invoice`
    is filled, the quantity is 0, or the whole file has "sold" in its name.
    (Files with "srj" in the name are the exception: their INV/MEMO column is
-   ignored for this. A Company of "BACK TO CARD", "TRF TO ..." or "TRANSFER TO
+   ignored for this, and their `COMMENT` column is used like Company — any
+   comment such as "ASC" or "CB DIAMONDS" marks the row sold. A Company of "BACK TO CARD", "TRF TO ..." or "TRANSFER TO
    ..." means the piece moved, so it doesn't count as sold.)
    Rows whose Style cell is a note rather than a style number (e.g. "JB01029BT8
    - DUPLICATE ONLY FOR RECORDS", "ALL SHIPPED") are skipped. Sold pieces stay in
