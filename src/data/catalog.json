@@ -38608,6 +38608,541 @@
   {
     "id": "aaset0007",
     "styleNumber": "AASET0007",
+    "name": "SILVER Diamond Piece",
+    "description": "SILVER Piece featuring Diamond, total carat weight 1 CTW.",
+    "category": "Uncategorized",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "1",
+    "soldOut": false,
+    "quantityAvailable": 22,
+    "price": 225,
+    "photos": [
+      {
+        "url": "/api/immich-image/6aa25e07-8504-4497-93c1-990df4b7e517/preview",
+        "alt": "AASET0007 photo 1"
+      },
+      {
+        "url": "/api/immich-image/fd0a68e9-c2be-41ae-991b-96349b8cdd36/preview",
+        "alt": "AASET0007 photo 2"
+      },
+      {
+        "url": "/api/immich-image/f508de11-3fc9-435b-a91a-c8b3a41aff52/preview",
+        "alt": "AASET0007 photo 3"
+      },
+      {
+        "url": "/api/immich-image/df8882f3-354e-4e7a-bf4c-96680666da95/preview",
+        "alt": "AASET0007 photo 4"
+      },
+      {
+        "url": "/api/immich-image/0ad0dfb5-7ca1-4d8b-a7bd-f9fbf2dc07fc/preview",
+        "alt": "AASET0007 photo 5"
+      },
+      {
+        "url": "/api/immich-image/b6859ca6-60df-4d6f-a8d6-3882213d42ea/preview",
+        "alt": "AASET0007 photo 6"
+      }
+    ]
+  },
+  {
+    "id": "aabr200a0045",
+    "styleNumber": "AABR200A0045",
+    "name": "SILVER Diamond Bracelets",
+    "description": "SILVER Bracelets featuring Diamond, total carat weight 2 CTW.",
+    "category": "Bracelets",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "2",
+    "soldOut": false,
+    "quantityAvailable": 42,
+    "price": 357,
+    "photos": [
+      {
+        "url": "/api/immich-image/fd2e2a7a-264f-4ef7-9847-eaef7f2a1f6f/preview",
+        "alt": "AABR200A0045 photo 1"
+      },
+      {
+        "url": "/api/immich-image/80e3121d-093b-44d2-894e-fc789dabbe13/preview",
+        "alt": "AABR200A0045 photo 2"
+      },
+      {
+        "url": "/api/immich-image/d6627b15-b0bb-44e4-ad88-124912dc452d/preview",
+        "alt": "AABR200A0045 photo 3"
+      },
+      {
+        "url": "/api/immich-image/38a780ca-00b8-4755-bc5e-8c653d396114/preview",
+        "alt": "AABR200A0045 photo 4"
+      },
+      {
+        "url": "/api/immich-image/3df9770c-6770-40d3-bda6-6b35e5f1f116/preview",
+        "alt": "AABR200A0045 photo 5"
+      },
+      {
+        "url": "/api/immich-image/26949869-4b9e-40bf-8a8f-e1ec2d636f15/preview",
+        "alt": "AABR200A0045 photo 6"
+      }
+    ]
+  },
+  {
+    "id": "aabr200a0045yp",
+    "styleNumber": "AABR200A0045YP",
+    "name": "SILVER Diamond Bracelets",
+    "description": "SILVER Bracelets featuring Diamond, total carat weight 2 CTW.",
+    "category": "Bracelets",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "2",
+    "soldOut": false,
+    "quantityAvailable": 39,
+    "price": 357,
+    "photos": [
+      {
+        "url": "/api/immich-image/2b3b8428-56ed-491d-af91-471b10e929d9/preview",
+        "alt": "AABR200A0045YP photo 1"
+      },
+      {
+        "url": "/api/immich-image/1dd74564-45d2-46f8-bd7b-1c511aff7348/preview",
+        "alt": "AABR200A0045YP photo 2"
+      }
+    ]
+  },
+  {
+    "id": "aae010a1363ttr",
+    "styleNumber": "AAE010A1363TTR",
+    "name": "SILVER Diamond Earrings",
+    "description": "SILVER Earrings featuring Diamond, total carat weight 0.1 CTW.",
+    "category": "Earrings",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "0.1",
+    "soldOut": false,
+    "quantityAvailable": 60,
+    "price": 45,
+    "photos": [
+      {
+        "url": "/api/immich-image/b363f137-2442-46d9-ac5c-f544bb869a19/preview",
+        "alt": "AAE010A1363TTR photo 1"
+      },
+      {
+        "url": "/api/immich-image/3b8b9217-b3d8-4b11-be3e-87fb3087d6c7/preview",
+        "alt": "AAE010A1363TTR photo 2"
+      },
+      {
+        "url": "/api/immich-image/8fcdc806-96a2-4e5b-a76c-7690d1af6a1b/preview",
+        "alt": "AAE010A1363TTR photo 3"
+      },
+      {
+        "url": "/api/immich-image/7b5de321-d3e4-4f2f-9aeb-71975da17231/preview",
+        "alt": "AAE010A1363TTR photo 4"
+      },
+      {
+        "url": "/api/immich-image/ab98ddd6-9f7c-4f92-922e-2190d9db84c3/preview",
+        "alt": "AAE010A1363TTR photo 5"
+      },
+      {
+        "url": "/api/immich-image/03284d9b-678b-48ce-a6a2-e17e5ee3d8ac/preview",
+        "alt": "AAE010A1363TTR photo 6"
+      }
+    ]
+  },
+  {
+    "id": "aae200a0571",
+    "styleNumber": "AAE200A0571",
+    "name": "SILVER Diamond Earrings",
+    "description": "SILVER Earrings featuring Diamond, total carat weight 2 CTW.",
+    "category": "Earrings",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "2",
+    "soldOut": false,
+    "quantityAvailable": 41,
+    "price": 302,
+    "photos": [
+      {
+        "url": "/api/immich-image/5b616eb2-36dd-4f3c-bcb4-77845c369760/preview",
+        "alt": "AAE200A0571 photo 1"
+      },
+      {
+        "url": "/api/immich-image/695a7a84-71fe-4a3c-a478-5aec6b01ea1e/preview",
+        "alt": "AAE200A0571 photo 2"
+      },
+      {
+        "url": "/api/immich-image/867e248f-f2fb-4c32-8408-09065269396e/preview",
+        "alt": "AAE200A0571 photo 3"
+      },
+      {
+        "url": "/api/immich-image/09cd8296-186a-4622-9898-1c0c9c0672c2/preview",
+        "alt": "AAE200A0571 photo 4"
+      },
+      {
+        "url": "/api/immich-image/68aa339d-52c1-4dfb-9356-f80dad3f3443/preview",
+        "alt": "AAE200A0571 photo 5"
+      },
+      {
+        "url": "/api/immich-image/ad82c0b4-ae7a-4c4d-a0b3-2d337b9c87da/preview",
+        "alt": "AAE200A0571 photo 6"
+      }
+    ]
+  },
+  {
+    "id": "aae200a0572",
+    "styleNumber": "AAE200A0572",
+    "name": "SILVER Diamond Pendants",
+    "description": "SILVER Pendants featuring Diamond, total carat weight 2 CTW.",
+    "category": "Pendants",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "2",
+    "soldOut": false,
+    "quantityAvailable": 41,
+    "price": 301,
+    "photos": [
+      {
+        "url": "/api/immich-image/aad455ca-229d-44b7-9e4e-1a50da2edb55/preview",
+        "alt": "AAE200A0572 photo 1"
+      },
+      {
+        "url": "/api/immich-image/ba7a38ae-af5d-4fa3-90dc-7f30e2271c21/preview",
+        "alt": "AAE200A0572 photo 2"
+      },
+      {
+        "url": "/api/immich-image/4b5b96d6-e596-44d0-859b-d1b00263e538/preview",
+        "alt": "AAE200A0572 photo 3"
+      },
+      {
+        "url": "/api/immich-image/4bc4bf88-cac3-4679-b7ab-b06e0d9a31a6/preview",
+        "alt": "AAE200A0572 photo 4"
+      },
+      {
+        "url": "/api/immich-image/8d4271c5-e9d3-4557-ab65-8b19a0159cc0/preview",
+        "alt": "AAE200A0572 photo 5"
+      },
+      {
+        "url": "/api/immich-image/010f761f-28d1-4f89-8f06-d6bc917621c5/preview",
+        "alt": "AAE200A0572 photo 6"
+      }
+    ]
+  },
+  {
+    "id": "aap010a1263ttr",
+    "styleNumber": "AAP010A1263TTR",
+    "name": "SILVER Diamond Pendants",
+    "description": "SILVER Pendants featuring Diamond, total carat weight 0.1 CTW.",
+    "category": "Pendants",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "0.1",
+    "soldOut": true,
+    "price": 50,
+    "photos": [
+      {
+        "url": "/api/immich-image/e2e93d97-6180-4350-beaa-cb085906226f/preview",
+        "alt": "AAP010A1263TTR photo 1"
+      },
+      {
+        "url": "/api/immich-image/b927849d-9b8a-4b98-baa4-8e23180a4d06/preview",
+        "alt": "AAP010A1263TTR photo 2"
+      },
+      {
+        "url": "/api/immich-image/47a4ad2f-135a-4e18-8835-8b7bf0e9512c/preview",
+        "alt": "AAP010A1263TTR photo 3"
+      },
+      {
+        "url": "/api/immich-image/a1a96430-4902-4afa-9cb8-2203bfe5b599/preview",
+        "alt": "AAP010A1263TTR photo 4"
+      },
+      {
+        "url": "/api/immich-image/b424849a-3bcb-46d9-895a-a3c1ecb738c8/preview",
+        "alt": "AAP010A1263TTR photo 5"
+      }
+    ]
+  },
+  {
+    "id": "aap100a0309",
+    "styleNumber": "AAP100A0309",
+    "name": "SILVER Diamond Pendants",
+    "description": "SILVER Pendants featuring Diamond, total carat weight 1 CTW.",
+    "category": "Pendants",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "1",
+    "soldOut": true,
+    "price": 155,
+    "photos": [
+      {
+        "url": "/api/immich-image/e81ac122-9c2a-42ef-8a6f-476512b021d4/preview",
+        "alt": "AAP100A0309 photo 1"
+      },
+      {
+        "url": "/api/immich-image/2fa012c7-9d00-438b-9e91-aaeed2f59bf0/preview",
+        "alt": "AAP100A0309 photo 2"
+      },
+      {
+        "url": "/api/immich-image/2ade5dc0-bfcc-41fb-8f7f-b9f792d51e16/preview",
+        "alt": "AAP100A0309 photo 3"
+      },
+      {
+        "url": "/api/immich-image/f60512a1-dfc9-4a83-9a69-ad5ca6707e0e/preview",
+        "alt": "AAP100A0309 photo 4"
+      },
+      {
+        "url": "/api/immich-image/1b3cb94d-9c6a-4b19-9c44-7cd0f717cba8/preview",
+        "alt": "AAP100A0309 photo 5"
+      },
+      {
+        "url": "/api/immich-image/6fef6687-85b2-4296-8444-78545bcf975b/preview",
+        "alt": "AAP100A0309 photo 6"
+      }
+    ]
+  },
+  {
+    "id": "aap100a0334yp",
+    "styleNumber": "AAP100A0334YP",
+    "name": "SILVER Diamond Pendants",
+    "description": "SILVER Pendants featuring Diamond, total carat weight 1 CTW.",
+    "category": "Pendants",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "1",
+    "soldOut": false,
+    "quantityAvailable": 100,
+    "price": 155,
+    "photos": [
+      {
+        "url": "/api/immich-image/03ec943f-7631-412d-99fd-c4f52f38d389/preview",
+        "alt": "AAP100A0334YP photo 1"
+      },
+      {
+        "url": "/api/immich-image/4a4ca130-7627-4434-aa18-3ce97bebe5f8/preview",
+        "alt": "AAP100A0334YP photo 2"
+      },
+      {
+        "url": "/api/immich-image/638f6f79-f574-4bdb-94fc-9970ba7984b0/preview",
+        "alt": "AAP100A0334YP photo 3"
+      }
+    ]
+  },
+  {
+    "id": "aap200a0275",
+    "styleNumber": "AAP200A0275",
+    "name": "SILVER Diamond Pendants",
+    "description": "SILVER Pendants featuring Diamond, total carat weight 2 CTW.",
+    "category": "Pendants",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "2",
+    "soldOut": false,
+    "quantityAvailable": 47,
+    "price": 310,
+    "photos": [
+      {
+        "url": "/api/immich-image/b79f81e7-bf85-410d-8843-d8797b254738/preview",
+        "alt": "AAP200A0275 photo 1"
+      },
+      {
+        "url": "/api/immich-image/6b9d2fa1-9c25-4947-b019-b9e977c14073/preview",
+        "alt": "AAP200A0275 photo 2"
+      },
+      {
+        "url": "/api/immich-image/9fb8a6b3-c062-4b51-8570-22a887a786be/preview",
+        "alt": "AAP200A0275 photo 3"
+      },
+      {
+        "url": "/api/immich-image/364c338d-34f0-4d48-954e-dd54d482beec/preview",
+        "alt": "AAP200A0275 photo 4"
+      },
+      {
+        "url": "/api/immich-image/7c44b1fb-f4f3-45bc-8db4-af697f6cbf57/preview",
+        "alt": "AAP200A0275 photo 5"
+      },
+      {
+        "url": "/api/immich-image/874c33ea-6c71-43a1-935a-32f61e8c9786/preview",
+        "alt": "AAP200A0275 photo 6"
+      }
+    ]
+  },
+  {
+    "id": "aap200a0276",
+    "styleNumber": "AAP200A0276",
+    "name": "SILVER Diamond Pendants",
+    "description": "SILVER Pendants featuring Diamond, total carat weight 2 CTW.",
+    "category": "Pendants",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "2",
+    "soldOut": false,
+    "quantityAvailable": 45,
+    "price": 312,
+    "photos": [
+      {
+        "url": "/api/immich-image/f9609893-f41f-4b63-bb58-4c815460797a/preview",
+        "alt": "AAP200A0276 photo 1"
+      },
+      {
+        "url": "/api/immich-image/0fab9ae4-e23a-4846-9a37-714ecc65d986/preview",
+        "alt": "AAP200A0276 photo 2"
+      },
+      {
+        "url": "/api/immich-image/d04f3274-cbf1-4a09-86da-8a4b4640552f/preview",
+        "alt": "AAP200A0276 photo 3"
+      },
+      {
+        "url": "/api/immich-image/b2313125-5481-4538-a285-f2ecd0e3beb7/preview",
+        "alt": "AAP200A0276 photo 4"
+      },
+      {
+        "url": "/api/immich-image/54178090-540a-493d-99da-0b4b4d83f753/preview",
+        "alt": "AAP200A0276 photo 5"
+      },
+      {
+        "url": "/api/immich-image/4d202d11-2274-4c6c-9245-3b6cce7f5cee/preview",
+        "alt": "AAP200A0276 photo 6"
+      }
+    ]
+  },
+  {
+    "id": "aar010a1263ttr",
+    "styleNumber": "AAR010A1263TTR",
+    "name": "SILVER Diamond Rings",
+    "description": "SILVER Rings featuring Diamond, total carat weight 0.1 CTW.",
+    "category": "Rings",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "0.1",
+    "soldOut": false,
+    "quantityAvailable": 84,
+    "price": 43,
+    "photos": [
+      {
+        "url": "/api/immich-image/a8bf5a39-2cac-4f5c-8133-44cd4b72c800/preview",
+        "alt": "AAR010A1263TTR photo 1"
+      },
+      {
+        "url": "/api/immich-image/e27b24c8-bac4-436e-b081-8e80b449ab98/preview",
+        "alt": "AAR010A1263TTR photo 2"
+      },
+      {
+        "url": "/api/immich-image/78a0854e-5da7-4e29-8b32-b591fde59f5b/preview",
+        "alt": "AAR010A1263TTR photo 3"
+      },
+      {
+        "url": "/api/immich-image/461c9108-bef9-438c-b33a-c479663a6a6e/preview",
+        "alt": "AAR010A1263TTR photo 4"
+      },
+      {
+        "url": "/api/immich-image/477b3c55-1b19-4656-9f4d-98bbb2eaf704/preview",
+        "alt": "AAR010A1263TTR photo 5"
+      }
+    ]
+  },
+  {
+    "id": "aar200a0823",
+    "styleNumber": "AAR200A0823",
+    "name": "SILVER Diamond Rings",
+    "description": "SILVER Rings featuring Diamond, total carat weight 2 CTW.",
+    "category": "Rings",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "2",
+    "soldOut": false,
+    "quantityAvailable": 67,
+    "price": 255,
+    "photos": [
+      {
+        "url": "/api/immich-image/96928ff0-fe7d-4dbe-9ec3-b7e9b2691e8b/preview",
+        "alt": "AAR200A0823 photo 1"
+      },
+      {
+        "url": "/api/immich-image/1be291b4-1349-43e3-99f5-8bdfb2467a3b/preview",
+        "alt": "AAR200A0823 photo 2"
+      },
+      {
+        "url": "/api/immich-image/80eaf92f-b1a7-4c83-9011-676e597f54b0/preview",
+        "alt": "AAR200A0823 photo 3"
+      },
+      {
+        "url": "/api/immich-image/694844c8-e952-4b11-88ff-587ff8ab935d/preview",
+        "alt": "AAR200A0823 photo 4"
+      },
+      {
+        "url": "/api/immich-image/1f4fb355-3595-43a8-9ebd-48acf1d1e1fa/preview",
+        "alt": "AAR200A0823 photo 5"
+      },
+      {
+        "url": "/api/immich-image/4da57d1a-30c6-40de-af80-a2916f00b23c/preview",
+        "alt": "AAR200A0823 photo 6"
+      }
+    ]
+  },
+  {
+    "id": "aar200a1160",
+    "styleNumber": "AAR200A1160",
+    "name": "SILVER Diamond Rings",
+    "description": "SILVER Rings featuring Diamond, total carat weight 2 CTW.",
+    "category": "Rings",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "2",
+    "soldOut": false,
+    "quantityAvailable": 32,
+    "price": 289,
+    "photos": [
+      {
+        "url": "/api/immich-image/23c96ccc-a442-4bd0-a70c-65dc3b54e6e6/preview",
+        "alt": "AAR200A1160 photo 1"
+      },
+      {
+        "url": "/api/immich-image/9dcf762a-ec32-4493-8553-1d9bcc1fa0eb/preview",
+        "alt": "AAR200A1160 photo 2"
+      },
+      {
+        "url": "/api/immich-image/d6fb750b-3adc-4e5d-afb6-e5ff2d3858d2/preview",
+        "alt": "AAR200A1160 photo 3"
+      },
+      {
+        "url": "/api/immich-image/f18faa47-4fd3-45df-bfec-012416fc7759/preview",
+        "alt": "AAR200A1160 photo 4"
+      },
+      {
+        "url": "/api/immich-image/5fd33691-f537-49f6-87cc-9f076546039f/preview",
+        "alt": "AAR200A1160 photo 5"
+      },
+      {
+        "url": "/api/immich-image/698d1c78-e233-4538-ab3a-dae77fdf0db7/preview",
+        "alt": "AAR200A1160 photo 6"
+      }
+    ]
+  },
+  {
+    "id": "aar200a1213yp",
+    "styleNumber": "AAR200A1213YP",
+    "name": "SILVER Diamond Rings",
+    "description": "SILVER Rings featuring Diamond, total carat weight 2 CTW.",
+    "category": "Rings",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "2",
+    "soldOut": false,
+    "quantityAvailable": 83,
+    "price": 287,
+    "photos": [
+      {
+        "url": "/api/immich-image/6ad20801-10f8-4cda-aec4-90d3a898f6c4/preview",
+        "alt": "AAR200A1213YP photo 1"
+      },
+      {
+        "url": "/api/immich-image/1fdc2ac4-b1b1-4430-8b47-861e49b60482/preview",
+        "alt": "AAR200A1213YP photo 2"
+      },
+      {
+        "url": "/api/immich-image/0f063543-3b84-46bd-8d68-a7094cf9a6db/preview",
+        "alt": "AAR200A1213YP photo 3"
+      }
+    ]
+  },
+  {
+    "id": "aaset0007-2",
+    "styleNumber": "AASET0007",
     "name": "Diamond Piece",
     "description": "Piece featuring Diamond, total carat weight 1 CTW.",
     "category": "Uncategorized",
@@ -81997,6 +82532,45 @@
     ]
   },
   {
+    "id": "aae050a0292",
+    "styleNumber": "AAE050A0292",
+    "name": "SILVER Diamond Earrings",
+    "description": "SILVER Earrings featuring Diamond, total carat weight 0.5 CTW.",
+    "category": "Earrings",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "0.5",
+    "soldOut": false,
+    "quantityAvailable": 10,
+    "price": 79,
+    "photos": [
+      {
+        "url": "/api/immich-image/bfb0f7c6-2dab-42e3-857d-34a786604722/preview",
+        "alt": "AAE050A0292 photo 1"
+      },
+      {
+        "url": "/api/immich-image/a7e4d17b-e29c-41bd-84db-e922c669c2ba/preview",
+        "alt": "AAE050A0292 photo 2"
+      },
+      {
+        "url": "/api/immich-image/a8901bb8-7237-48cf-acc2-d5cc867c6c11/preview",
+        "alt": "AAE050A0292 photo 3"
+      },
+      {
+        "url": "/api/immich-image/78a154a5-64f6-482e-9846-cafcbbac857c/preview",
+        "alt": "AAE050A0292 photo 4"
+      },
+      {
+        "url": "/api/immich-image/cf6e8a1e-ee88-4023-8e81-aa054528b390/preview",
+        "alt": "AAE050A0292 photo 5"
+      },
+      {
+        "url": "/api/immich-image/92cb084c-3e10-45bf-a347-3c97bfe33e82/preview",
+        "alt": "AAE050A0292 photo 6"
+      }
+    ]
+  },
+  {
     "id": "aae050a0292yp",
     "styleNumber": "AAE050A0292YP",
     "name": "SILVER Diamond Earrings",
@@ -82963,40 +83537,6 @@
     ]
   },
   {
-    "id": "aap010a1263ttr",
-    "styleNumber": "AAP010A1263TTR",
-    "name": "SILVER Diamond Pendants",
-    "description": "SILVER Pendants featuring Diamond, total carat weight 0.1 CTW.",
-    "category": "Pendants",
-    "metal": "Silver",
-    "stone": "Diamond",
-    "ctw": "0.1",
-    "soldOut": true,
-    "price": 50,
-    "photos": [
-      {
-        "url": "/api/immich-image/e2e93d97-6180-4350-beaa-cb085906226f/preview",
-        "alt": "AAP010A1263TTR photo 1"
-      },
-      {
-        "url": "/api/immich-image/b927849d-9b8a-4b98-baa4-8e23180a4d06/preview",
-        "alt": "AAP010A1263TTR photo 2"
-      },
-      {
-        "url": "/api/immich-image/47a4ad2f-135a-4e18-8835-8b7bf0e9512c/preview",
-        "alt": "AAP010A1263TTR photo 3"
-      },
-      {
-        "url": "/api/immich-image/a1a96430-4902-4afa-9cb8-2203bfe5b599/preview",
-        "alt": "AAP010A1263TTR photo 4"
-      },
-      {
-        "url": "/api/immich-image/b424849a-3bcb-46d9-895a-a3c1ecb738c8/preview",
-        "alt": "AAP010A1263TTR photo 5"
-      }
-    ]
-  },
-  {
     "id": "aap015a0192et",
     "styleNumber": "AAP015A0192ET",
     "name": "SILVER Diamond Pendants",
@@ -83811,44 +84351,6 @@
       {
         "url": "/api/immich-image/577328b0-4761-4aab-af80-600cd0ade8d6/preview",
         "alt": "AAP100A0250YP photo 1"
-      }
-    ]
-  },
-  {
-    "id": "aap100a0309",
-    "styleNumber": "AAP100A0309",
-    "name": "SILVER Diamond Pendants",
-    "description": "SILVER Pendants featuring Diamond, total carat weight 1 CTW.",
-    "category": "Pendants",
-    "metal": "Silver",
-    "stone": "Diamond",
-    "ctw": "1",
-    "soldOut": true,
-    "price": 155,
-    "photos": [
-      {
-        "url": "/api/immich-image/e81ac122-9c2a-42ef-8a6f-476512b021d4/preview",
-        "alt": "AAP100A0309 photo 1"
-      },
-      {
-        "url": "/api/immich-image/2fa012c7-9d00-438b-9e91-aaeed2f59bf0/preview",
-        "alt": "AAP100A0309 photo 2"
-      },
-      {
-        "url": "/api/immich-image/2ade5dc0-bfcc-41fb-8f7f-b9f792d51e16/preview",
-        "alt": "AAP100A0309 photo 3"
-      },
-      {
-        "url": "/api/immich-image/f60512a1-dfc9-4a83-9a69-ad5ca6707e0e/preview",
-        "alt": "AAP100A0309 photo 4"
-      },
-      {
-        "url": "/api/immich-image/1b3cb94d-9c6a-4b19-9c44-7cd0f717cba8/preview",
-        "alt": "AAP100A0309 photo 5"
-      },
-      {
-        "url": "/api/immich-image/6fef6687-85b2-4296-8444-78545bcf975b/preview",
-        "alt": "AAP100A0309 photo 6"
       }
     ]
   },
@@ -84888,15 +85390,55 @@
     ]
   },
   {
-    "id": "aar100a0789yp",
-    "styleNumber": "AAR100A0789YP",
+    "id": "aar100a0789",
+    "styleNumber": "AAR100A0789",
     "name": "SILVER Diamond Rings",
     "description": "SILVER Rings featuring Diamond, total carat weight 1 CTW.",
     "category": "Rings",
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "1",
-    "soldOut": true,
+    "soldOut": false,
+    "quantityAvailable": 1,
+    "price": 132,
+    "photos": [
+      {
+        "url": "/api/immich-image/8910db98-6ee9-464e-8c56-e3ab4bf366c2/preview",
+        "alt": "AAR100A0789 photo 1"
+      },
+      {
+        "url": "/api/immich-image/e7d76fe5-fe96-43ed-bbf0-0973bf27b1ea/preview",
+        "alt": "AAR100A0789 photo 2"
+      },
+      {
+        "url": "/api/immich-image/e1c929a4-2ccd-4c91-bb1b-b31e95f30e85/preview",
+        "alt": "AAR100A0789 photo 3"
+      },
+      {
+        "url": "/api/immich-image/8be11a3f-d09d-4ce2-9a35-327f6bbf8b61/preview",
+        "alt": "AAR100A0789 photo 4"
+      },
+      {
+        "url": "/api/immich-image/51f1ff78-5cd8-40c4-b691-c32c72b0855b/preview",
+        "alt": "AAR100A0789 photo 5"
+      },
+      {
+        "url": "/api/immich-image/726393e6-ee86-4b7e-9935-24e596757a0a/preview",
+        "alt": "AAR100A0789 photo 6"
+      }
+    ]
+  },
+  {
+    "id": "aar100a0789yp",
+    "styleNumber": "AAR100A0789YP",
+    "name": "SILVER/YP Diamond Rings",
+    "description": "SILVER/YP Rings featuring Diamond, total carat weight 1 CTW.",
+    "category": "Rings",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "1",
+    "soldOut": false,
+    "quantityAvailable": 3,
     "price": 148,
     "photos": [
       {
@@ -85104,6 +85646,119 @@
       {
         "url": "/api/immich-image/c624e82c-0b07-407f-80c6-832bf22a385c/preview",
         "alt": "AR0025SS1502X photo 4"
+      }
+    ]
+  },
+  {
+    "id": "aan200a0188",
+    "styleNumber": "AAN200A0188",
+    "name": "SILVER Diamond Necklaces",
+    "description": "SILVER Necklaces featuring Diamond, total carat weight 2 CTW.",
+    "category": "Necklaces",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "2",
+    "soldOut": false,
+    "quantityAvailable": 2,
+    "price": 296,
+    "photos": [
+      {
+        "url": "/api/immich-image/e77dce8a-30f0-4578-a1e5-eba25cdd8e7e/preview",
+        "alt": "AAN200A0188 photo 1"
+      },
+      {
+        "url": "/api/immich-image/4c8500ae-50c4-4c02-88a6-c5d4a54fa40c/preview",
+        "alt": "AAN200A0188 photo 2"
+      },
+      {
+        "url": "/api/immich-image/e9b20bce-351f-499d-b6ad-7d3b4d2d6569/preview",
+        "alt": "AAN200A0188 photo 3"
+      },
+      {
+        "url": "/api/immich-image/f504fb3e-6502-4ff3-a587-e9d13bd0ed57/preview",
+        "alt": "AAN200A0188 photo 4"
+      },
+      {
+        "url": "/api/immich-image/7bf0e2e1-5797-4122-80e9-6bbc50fc1fe3/preview",
+        "alt": "AAN200A0188 photo 5"
+      },
+      {
+        "url": "/api/immich-image/cf6246d6-d753-4abf-86cf-0df7c2bf8022/preview",
+        "alt": "AAN200A0188 photo 6"
+      }
+    ]
+  },
+  {
+    "id": "aan200a0188yp",
+    "styleNumber": "AAN200A0188YP",
+    "name": "SILVER/YP Diamond Necklaces",
+    "description": "SILVER/YP Necklaces featuring Diamond, total carat weight 2 CTW.",
+    "category": "Necklaces",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "2",
+    "soldOut": false,
+    "quantityAvailable": 3,
+    "price": 294,
+    "photos": [
+      {
+        "url": "/api/immich-image/bb62006f-aca6-4b80-8952-a065f3a35455/preview",
+        "alt": "AAN200A0188YP photo 1"
+      },
+      {
+        "url": "/api/immich-image/5af7d2fb-7217-4d83-a6ec-2f4cbefb17a6/preview",
+        "alt": "AAN200A0188YP photo 2"
+      },
+      {
+        "url": "/api/immich-image/17d4f0c1-6f63-476a-95b5-be7b22822575/preview",
+        "alt": "AAN200A0188YP photo 3"
+      },
+      {
+        "url": "/api/immich-image/d0fa00c8-ab9d-4e68-97c7-6ff31c9e2809/preview",
+        "alt": "AAN200A0188YP photo 4"
+      },
+      {
+        "url": "/api/immich-image/792ec97d-988a-4157-be03-cbea689600c3/preview",
+        "alt": "AAN200A0188YP photo 5"
+      }
+    ]
+  },
+  {
+    "id": "aar200a1159",
+    "styleNumber": "AAR200A1159",
+    "name": "SILVER Diamond Rings",
+    "description": "SILVER Rings featuring Diamond, total carat weight 2 CTW.",
+    "category": "Rings",
+    "metal": "Silver",
+    "stone": "Diamond",
+    "ctw": "2",
+    "soldOut": false,
+    "quantityAvailable": 11,
+    "price": 279,
+    "photos": [
+      {
+        "url": "/api/immich-image/6cb45d38-7c34-4091-b832-afaff541effc/preview",
+        "alt": "AAR200A1159 photo 1"
+      },
+      {
+        "url": "/api/immich-image/0d77dc07-5c3e-4ab0-95bc-5de4ae1616e2/preview",
+        "alt": "AAR200A1159 photo 2"
+      },
+      {
+        "url": "/api/immich-image/b0152cf9-0ff1-40c9-85b3-2c4ab997a26d/preview",
+        "alt": "AAR200A1159 photo 3"
+      },
+      {
+        "url": "/api/immich-image/67a89d44-f444-4b44-8cc4-d0235934ad7b/preview",
+        "alt": "AAR200A1159 photo 4"
+      },
+      {
+        "url": "/api/immich-image/f9fd8f33-f278-48db-9281-20719289673a/preview",
+        "alt": "AAR200A1159 photo 5"
+      },
+      {
+        "url": "/api/immich-image/b7343160-3d6a-4d73-b8ce-41503b1413bd/preview",
+        "alt": "AAR200A1159 photo 6"
       }
     ]
   },
