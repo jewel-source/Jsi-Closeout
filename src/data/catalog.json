@@ -36061,7 +36061,7 @@
     "stone": "Diamond",
     "ctw": "1",
     "soldOut": false,
-    "quantityAvailable": 129,
+    "quantityAvailable": 128,
     "price": 127,
     "photos": [
       {
@@ -37241,7 +37241,7 @@
     "stone": "Diamond",
     "ctw": "3",
     "soldOut": false,
-    "quantityAvailable": 69,
+    "quantityAvailable": 68,
     "price": 358,
     "photos": [
       {
@@ -37251,8 +37251,8 @@
     ]
   },
   {
-    "id": "ab200j000185e",
-    "styleNumber": "AB200J000185E",
+    "id": "ab200j000185x",
+    "styleNumber": "AB200J000185X",
     "name": "SILVER Diamond Bracelets",
     "description": "SILVER Bracelets featuring Diamond, total carat weight 2 CTW.",
     "category": "Bracelets",
@@ -37260,12 +37260,12 @@
     "stone": "Diamond",
     "ctw": "2",
     "soldOut": false,
-    "quantityAvailable": 120,
+    "quantityAvailable": 119,
     "price": 273,
     "photos": [
       {
         "url": "/api/immich-image/47ec7255-dc79-4af3-a3f2-91d65df75a72/preview",
-        "alt": "AB200J000185E photo 1"
+        "alt": "AB200J000185X photo 1"
       }
     ]
   },
@@ -38277,7 +38277,8 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "7",
-    "soldOut": true,
+    "soldOut": false,
+    "quantityAvailable": 9,
     "price": 755,
     "photos": [
       {
@@ -38407,7 +38408,7 @@
     "stone": "Diamond",
     "ctw": "2",
     "soldOut": false,
-    "quantityAvailable": 44,
+    "quantityAvailable": 43,
     "price": 249,
     "photos": [
       {
@@ -38511,7 +38512,7 @@
     "stone": "Diamond",
     "ctw": "1",
     "soldOut": false,
-    "quantityAvailable": 230,
+    "quantityAvailable": 229,
     "price": 113,
     "photos": [
       {
@@ -38550,7 +38551,7 @@
     "stone": "Diamond",
     "ctw": "1",
     "soldOut": false,
-    "quantityAvailable": 280,
+    "quantityAvailable": 279,
     "price": 114,
     "photos": [
       {
@@ -73810,8 +73811,9 @@
     "metal": "Silver",
     "stone": "Diamond",
     "ctw": "7",
-    "soldOut": true,
-    "price": 758,
+    "soldOut": false,
+    "quantityAvailable": 9,
+    "price": 755,
     "photos": [
       {
         "url": "/api/immich-image/bdb91c6e-d71a-4de9-8486-371cf51c2152/preview",
